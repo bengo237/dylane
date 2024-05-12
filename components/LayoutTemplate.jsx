@@ -207,19 +207,10 @@ export default function LayoutTemplate({ children }) {
 							<NavbarOption>{language.navbarMenu.labelExperience}</NavbarOption>
 						</a>
 					</Fade>
-					<Fade top delay={600} duration={200}>
-						{/* <LanguageSwitchButton /> */}
-						<SwitchThemeButton />
-					</Fade>
-
-					<Fade top delay={600} duration={200}>
-						<LanguageSwitchButton /> 
-						{/*<SwitchThemeButton />*/}
-					</Fade>
 				</NavbarOptionContainer>
 
 				<SwitchMenuContainer>
-					{/* <LanguageSwitchButton /> */}
+					<LanguageSwitchButton />
 					<SwitchThemeButton />
 				</SwitchMenuContainer>
 			</HeaderContainer>
