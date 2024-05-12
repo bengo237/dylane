@@ -235,7 +235,7 @@ export default function FooterPage(props) {
 	}, []);
 
 	async function getLastCommit() {
-		const response = await fetch("https://api.github.com/repos/0xtter/Portfolio/commits");
+		const response = await fetch("https://api.github.com/repos/bengo237/dylane/commits");
 		const json = await response.json();
 		try {
 			setCommit(json[0].sha.slice(0, 6));
@@ -271,7 +271,7 @@ export default function FooterPage(props) {
 						<a style={{ textDecoration: "none" }} href="#section-portifolio" onClick={scrollToSection}>
 							<FooterText>{language.footer.labelNavigation.labelPortifolio}</FooterText>
 						</a>
-						<a style={{ textDecoration: "none" }} href="#section-experiencia" onClick={scrollToSection}>
+						<a style={{ textDecoration: "none" }} href="#section-experience" onClick={scrollToSection}>
 							<FooterText>{language.footer.labelNavigation.labelExperience}</FooterText>
 						</a>
 					</SectionFooterMenu>
@@ -281,8 +281,8 @@ export default function FooterPage(props) {
 					<SectionFooterMenu>
 						<FooterTextTitle>{language.footer.labelHost.title}</FooterTextTitle>
 
-						<FooterTextExternalLink href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank">
-							Self-Hosting
+						<FooterTextExternalLink href="https://t.me/kmerbooking" target="_blank">
+						Kmer Booking Free Books
 						</FooterTextExternalLink>
 					</SectionFooterMenu>
 				</ScrollAnimation>
@@ -300,16 +300,20 @@ export default function FooterPage(props) {
 					<SectionFooterMenu>
 						<FooterTextTitle>{language.footer.labelTechs.title}</FooterTextTitle>
 
-						<FooterTextExternalLink href="https://pt-br.reactjs.org/" target="_blank">
-							React.Js
+						<FooterTextExternalLink href="https://www.keycloak.org" target="_blank">
+							Keycloak
 						</FooterTextExternalLink>
 
-						<FooterTextExternalLink href="https://nextjs.org/" target="_blank">
-							Next.Js
+						<FooterTextExternalLink href="https://www.docker.com" target="_blank">
+							Docker
 						</FooterTextExternalLink>
 
-						<FooterTextExternalLink href="https://styled-components.com/" target="_blank">
-							Styled components
+						<FooterTextExternalLink href="https://kubernetes.io" target="_blank">
+							Kubernetes
+						</FooterTextExternalLink>
+
+						<FooterTextExternalLink href="https://aws.amazon.com/" target="_blank">
+							Aws
 						</FooterTextExternalLink>
 					</SectionFooterMenu>
 				</ScrollAnimation>

@@ -4,6 +4,7 @@ import { MailSend } from "@styled-icons/boxicons-regular/MailSend";
 import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/bootstrap/Github";
+import { LogoWhatsapp } from "@styled-icons/ionicons-solid/LogoWhatsapp";
 
 const SocialMediaContainer = styled.div`
 	display: flex;
@@ -71,11 +72,15 @@ export default function SocialNetworkRowStack() {
 				<MailSend />
 			</ButtonSocialMediaIcon>
 
-			<ButtonSocialMediaIcon href="https://www.linkedin.com/in/chanel-dylane-b-91b850194//	" target="_blank" data-splitbee-event="linkedin-access">
+			<ButtonSocialMediaIcon href="https://wa.me/message/P4C3X3IRXVG7C1" target="_blank">
+				<LogoWhatsapp />
+			</ButtonSocialMediaIcon>
+
+			<ButtonSocialMediaIcon href="https://www.linkedin.com/in/chanel-dylane-b-91b850194" target="_blank" data-splitbee-event="linkedin-access">
 				<LinkedinSquare />
 			</ButtonSocialMediaIcon>
 
-			<ButtonSocialMediaIcon href="https://x.com/https://twitter.com/chaneldylaneben" target="_blank">
+			<ButtonSocialMediaIcon href="https://x.com/chaneldylaneben" target="_blank">
 				<Twitter />
 			</ButtonSocialMediaIcon>
 
