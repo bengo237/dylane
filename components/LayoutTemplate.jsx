@@ -208,7 +208,7 @@ export default function LayoutTemplate({ children }) {
 						</a>
 					</Fade>
 					<Fade top delay={600} duration={200}>
-						{/* <LanguageSwitchButton /> */}
+						{ <LanguageSwitchButton /> }
 						<SwitchThemeButton />
 					</Fade>
 				</NavbarOptionContainer>

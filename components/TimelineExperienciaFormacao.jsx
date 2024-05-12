@@ -153,7 +153,7 @@ export default function TimelinePortifolio(props) {
 						{language.experiencePage.timeline.labelCompany}: <span>General Delegation for National Security, DGSN</span>
 					</BoldText>
 					<BoldText>
-						{language.experiencePage.timeline.labelTitle}: <span>Pre-Engineer Network Security Intern</span>
+						{language.experiencePage.timeline.labelPosition}: <span>Pre-Engineer Network Security Intern</span>
 					</BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
