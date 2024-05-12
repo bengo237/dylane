@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 //Third part librarys
 import Link from "next/link";
@@ -7,7 +7,7 @@ import Fade from "react-reveal/Fade";
 
 //Custom components
 import SwitchThemeButton from "@/components/SwitchThemeButton";
-import { scrollToSection } from "./SmoothScroll";
+import LanguageSwitchButton from "@/components/LanguageSwitchButton";
 
 //Contexto
 import { SettingsContext } from "@/context/SettingsContext";
@@ -79,7 +79,7 @@ const CaracteresLogo = styled.span`
 	font-weight: 700;
 `;
 
-const NavbarOptionContainer = styled.div`
+const NavbarOptionContainer = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -131,7 +131,6 @@ const NavbarOption = styled.h4`
 	&:hover {
 		cursor: pointer;
 		color: ${(props) => props.theme.colors.branding};
-		//border-bottom: 4px solid ${(props) => props.theme.colors.branding};
 	}
 
 	@media (max-width: 1400px) {
@@ -165,15 +164,14 @@ const SideBarTheme = styled.aside`
 export default function LayoutTemplate({ children }) {
 	const { language } = useContext(SettingsContext);
 
-
 	return (
 		<>
 			<HeaderContainer>
 				<Fade top delay={100} duration={200}>
-					<Link style={{ textDecoration: "none" }} href="https://0xtter.com" passHref>
+					<Link href="#section-home" passHref>
 						<LogoContainer>
 							<LogoText>
-								<CaracteresLogo>&lt;</CaracteresLogo>Bengo237<CaracteresLogo>/&gt;</CaracteresLogo>
+								<CaracteresLogo>&lt;</CaracteresLogo>GV <CaracteresLogo>/&gt;</CaracteresLogo>
 							</LogoText>
 						</LogoContainer>
 					</Link>
@@ -181,37 +179,37 @@ export default function LayoutTemplate({ children }) {
 
 				<NavbarOptionContainer>
 					<Fade top delay={100} duration={200}>
-						<a style={{ textDecoration: "none" }} href="#section-home" onClick={scrollToSection}>
+						<Link href="#section-home" passHref>
 							<NavbarOption>{language.navbarMenu.labelHome}</NavbarOption>
-						</a>
+						</Link>
 					</Fade>
+
+					{/* <Fade top delay={200} duration={200}>
+						<Link href="#section-services" passHref>
+							<NavbarOption>{language.navbarMenu.labelServices}</NavbarOption>
+						</Link>
+					</Fade> */}
 
 					<Fade top delay={200} duration={200}>
-						<a style={{ textDecoration: "none" }} href="#section-services" onClick={scrollToSection}>
-							<NavbarOption>{language.navbarMenu.labelServices}</NavbarOption>
-						</a>
-					</Fade>
-
-					<Fade top delay={300} duration={200}>
-						<a style={{ textDecoration: "none" }} href="#section-a-propos" onClick={scrollToSection}>
+						<Link href="#section-services" passHref>
 							<NavbarOption>{language.navbarMenu.labelAboutMe}</NavbarOption>
-						</a>
+						</Link>
+					</Fade>
+					<Fade top delay={300} duration={200}>
+						<Link href="#section-a-propos" passHref>
+							<NavbarOption>{language.navbarMenu.labelPortifolio}</NavbarOption>
+						</Link>
 					</Fade>
 					<Fade top delay={400} duration={200}>
-						<a style={{ textDecoration: "none" }} href="#section-portifolio" onClick={scrollToSection}>
-							<NavbarOption>{language.navbarMenu.labelPortifolio}</NavbarOption>
-						</a>
-					</Fade>
-					<Fade top delay={500} duration={200}>
-						<a style={{ textDecoration: "none" }} href="#section-experience" onClick={scrollToSection}>
+						<Link href="#section-experience" passHref>
 							<NavbarOption>{language.navbarMenu.labelExperience}</NavbarOption>
-						</a>
+						</Link>
 					</Fade>
 					<Fade top delay={500} duration={200}>
 						<LanguageSwitchButton />
 						<SwitchThemeButton />
 					</Fade>
-					</NavbarOptionContainer>
+				</NavbarOptionContainer>
 
 				<SwitchMenuContainer>
 					<LanguageSwitchButton />
