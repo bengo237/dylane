@@ -298,6 +298,7 @@ export default function FooterPage(props) {
 
 				<ScrollAnimation animateIn="fadeIn" animateOnce delay={600}>
 					<SectionFooterMenu>
+						<FooterTextTitle>{language.footer.labelTechs.title}</FooterTextTitle>
 
 						<FooterTextExternalLink href="https://www.keycloak.org" target="_blank">
 							Keycloak
