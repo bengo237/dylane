@@ -3,6 +3,7 @@ name: OWASP ZAP Integration with GitHub Actions
 on: [push]
 
 jobs:
+<<<<<<< HEAD
     zap_scan:
         runs-on: ubuntu-latest
         name: Scan the web application
@@ -18,3 +19,20 @@ jobs:
                   target: "https://dylane-mu.vercel.app/"
                   rules_file_name: ".zap/rules.tsv"
                   cmd_options: "-a"
+=======
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the web application
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.6.1
+        with:
+          docker_name: 'owasp/zap2docker-stable'
+          target: 'https://dylane-mu.vercel.app/'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
+>>>>>>> 1055e2c7873f28e9cbbaeec4efb871c66346ac1f
