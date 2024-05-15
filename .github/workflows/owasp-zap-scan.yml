@@ -10,7 +10,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
               with:
-                  ref: main
+                  ref: master
             - name: ZAP Scan
               uses: zaproxy/action-baseline@master
               with:
