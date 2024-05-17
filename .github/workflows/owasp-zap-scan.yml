@@ -1,11 +1,5 @@
 name: OWASP ZAP Scan
-name: OWASP ZAP Scan
 
-on:
-    push:
-        branches: [master]
-    pull_request:
-        branches: [master]
 on:
     push:
         branches: [master]
@@ -30,16 +24,19 @@ jobs:
                   target: "https://dylane-mu.vercel.app/"
                   rules_file_name: ".zap/rules.tsv"
                   cmd_options: "-J report.json"
+
             - name: Save ZAP Report
               uses: actions/upload-artifact@v2
               with:
                   name: zap-report
                   path: report.json
+
             - name: Download ZAP Report
               uses: actions/download-artifact@v2
               with:
                   name: zap-report
                   path: ./zap_report
+
             - name: Rename and Commit ZAP Report
               run: |
                   mv ./zap_report/report.json ./zap_report/report_$(date +%Y%m%d%H%M%S).json
@@ -49,4 +46,4 @@ jobs:
                   git commit -m 'Add ZAP report'
                   git push
               env:
-                  GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
