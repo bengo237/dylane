@@ -28,6 +28,7 @@ jobs:
             - name: Download ZAP Scan Report
               uses: actions/download-artifact@v2
               with:
-                  name: zap_scan
-            - name: Unzip ZAP Scan Report
-              run: unzip zap_scan/zapReport.md.zip -d zap_scan
+                - name: Unzip ZAP Scan Report
+                run: |
+                  mkdir report
+                  unzip zap_scan/zapReport.md.zip -d report
