@@ -34,4 +34,4 @@ jobs:
               with:
                   name: zap_scan
             - name: Unzip ZAP Scan Report
-              run: unzip ${{ github.workspace }}/zap_scan/zapReport.md.zip -d report
+              run: unzip ${{ github.workspace }}/zapReport.md.zip -d report
