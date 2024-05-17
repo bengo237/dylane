@@ -1,8 +1,6 @@
 name: OWASP ZAP Scan
 
 on:
-    push:
-        branches: [master]
     pull_request:
         branches: [master]
 
