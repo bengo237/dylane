@@ -35,7 +35,7 @@ jobs:
                   name: zap_scan
             - name: List downloaded files
               run: ls -R
+            - name: Create report directory
+              run: mkdir -p report
             - name: Move ZAP Scan Report
-              run: mv zap_scan/zapReport.md zapReport.md
-            - name: Unzip ZAP Scan Report
-              run: unzip zapReport.md -d report
+              run: mv zap_scan/* report/
