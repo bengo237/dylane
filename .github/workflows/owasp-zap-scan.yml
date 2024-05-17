@@ -37,12 +37,13 @@ jobs:
                   name: zap-report
                   path: ./zap_report
 
-            - name: Commit and Push ZAP Report
+            - name: Rename and Commit ZAP Report
               run: |
-                  git config --global user.name 'Dylane Bengono'
-                  git config --global user.email 'chaneldylanebengono@gmail.com'
-                  git add ./zap_report/report.json
+                  mv ./zap_report/report.json ./zap_report/report_$(date +%Y%m%d%H%M%S).json
+                  git config --global user.name 'github-actions[bot]'
+                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+                  git add ./zap_report/report_*.json
                   git commit -m 'Add ZAP report'
                   git push
               env:
-                  GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
