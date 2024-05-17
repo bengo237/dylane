@@ -39,8 +39,8 @@ jobs:
 
             - name: Commit and Push ZAP Report
               run: |
-                  git config --global user.name 'github-actions[bot]'
-                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+                  git config --global user.name 'Dylane Bengono'
+                  git config --global user.email 'chaneldylanebengono@gmail.com'
                   git add ./zap_report/report.json
                   git commit -m 'Add ZAP report'
                   git push
