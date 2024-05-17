@@ -26,12 +26,14 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: zap_scan
-                  path: ./**/zapReport.md
+                  path: "**/zapReport.md"
             - name: Checkout repository
               uses: actions/checkout@v2
             - name: Download ZAP Scan Report
               uses: actions/download-artifact@v2
               with:
                   name: zap_scan
+            - name: Move ZAP Scan Report
+              run: mv zap_scan/zapReport.md zapReport.md
             - name: Unzip ZAP Scan Report
-              run: unzip ${{ github.workspace }}/zapReport.md.zip -d report
+              run: unzip zapReport.md -d report
