@@ -1,6 +1,10 @@
-name: OWASP ZAP Integration with GitHub Actions
+name: OWASP ZAP Scan
 
-on: [push]
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 
 jobs:
     zap_scan:
@@ -28,7 +32,6 @@ jobs:
             - name: Download ZAP Scan Report
               uses: actions/download-artifact@v2
               with:
-                - name: Unzip ZAP Scan Report
-                run: |
-                  mkdir report
-                  unzip zap_scan/zapReport.md.zip -d report
+                  name: zap_scan
+            - name: Unzip ZAP Scan Report
+              run: unzip ${{ github.workspace }}/zap_scan/zapReport.md.zip -d report
