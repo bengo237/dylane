@@ -30,4 +30,4 @@ jobs:
               with:
                   name: zap_scan
             - name: Unzip ZAP Scan Report
-              run: unzip zap_scan.zip
+              run: unzip zap_scan/zapReport.md.zip -d zap_scan
