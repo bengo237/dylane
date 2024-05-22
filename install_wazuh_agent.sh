@@ -20,7 +20,8 @@ sudo sed -i "s|<frequency>[0-9]*</frequency>|<frequency>50</frequency>|" $OSSEC_
 sudo sed -i "/<directories>\/etc,\/usr\/bin,\/usr\/sbin<\/directories>/a <directories realtime=\"yes\">/home/runner/work/dylane/dylane/report.json</directories>" $OSSEC_CONF
 
 # Add new localfile entry
-sudo sed -i "/<localfile>\n    <log_format>syslog<\/log_format>\n    <location>\/var\/ossec\/logs\/active-responses.log<\/location>\n  <\/localfile>/a \ \ <localfile>\n\ \ \ \ <log_format>json</log_format>\n\ \ \ \ <location>/home/runner/work/dylane/dylane/report.json</location>\n\ \ </localfile>" $OSSEC_CONF
+sudo sed -i "\$a<ossec_config>\n<localfile>\n<log_format>json</log_format>\n<location>/home/runner/work/dylane/dylane/report.json</location>\n</localfile>\n</ossec_config>" "$OSSEC_CONF"
+
 
 # Start the Wazuh agent service
 sudo systemctl start wazuh-agent
