@@ -24,13 +24,15 @@ echo "Modifying ossec.conf..."
 # Update the server address
 sed -i "s|<address>IP</address>|<address>$MANAGER_IP</address>|" $OSSEC_CONF
 
-# Update frequency and directories entries
-sed -i "s|<frequency>43200</frequency>|<frequency>300</frequency>|" $OSSEC_CONF
-sed -i "s|<directories>/etc,/usr/bin,/usr/sbin</directories>|<directories realtime=\"yes\">/home/runner/work/dylane/dylane/report.json</directories>\n    <directories>/etc,/usr/bin,/usr/sbin</directories>|" $OSSEC_CONF
+## Modifier la fréquence de vérification de syscheck
+sed -i "s|<frequency>[0-9]*</frequency>|<frequency>300</frequency>|" $OSSEC_CONF
 
-# Add new localfile entry
-sed -i "/<\/localfile>/a\\
-  <localfile>\n    <log_format>json</log_format>\n    <location>/home/runner/work/dylane/dylane/report.json</location>\n  </localfile>" $OSSEC_CONF
+# Modifier les répertoires vérifiés par syscheck
+sed -i "s|<directories>.*/etc,.*/usr/bin,.*/usr/sbin</directories>|<directories realtime=\"yes\">home/runner/work/dylane/dylane/report.json</directories>|" $OSSEC_CONF
+
+# Ajouter la configuration pour le fichier JSON
+echo -e "\n<localfile>\n\t<log_format>json</log_format>\n\t<location>/home/runner/work/dylane/dylane/report.json</location>\n</localfile>\n" >> $OSSEC_CONF
+
 
 # Rename the agent (if the <name> tag exists, otherwise add it)
 if grep -q "<name>" $OSSEC_CONF; then
