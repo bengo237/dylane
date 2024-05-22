@@ -24,9 +24,6 @@ sudo sed -i "/<localfile>\n    <log_format>syslog<\/log_format>\n    <location>\
 
 # Start the Wazuh agent service
 sudo systemctl start wazuh-agent
-
-systemctl status wazuh-agent.service
-journalctl -xeu wazuh-agent.service
 cat /var/ossec/etc/ossec.conf
 
 echo "Wazuh agent installation and configuration completed."
