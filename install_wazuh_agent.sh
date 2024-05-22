@@ -5,6 +5,16 @@ MANAGER_IP="master.wazuh.adorsys.team"
 AGENT_NAME="owasp-agent"
 OSSEC_CONF="/var/ossec/etc/ossec.conf"
 
+# Check if Wazuh Agent is already installed
+if dpkg -s wazuh-agent >/dev/null 2>&1; then
+  echo "Wazuh Agent is already installed. Skipping installation."
+  exit 0
+fi
+
+# Purge existing Wazuh Agent installation
+echo "Purging existing Wazuh Agent installation..."
+apt-get purge wazuh-agent -y
+
 # Install Wazuh Agent
 echo "Installing Wazuh Agent..."
 curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | apt-key add -
