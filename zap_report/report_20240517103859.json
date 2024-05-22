@@ -1,11 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.15.0",
-<<<<<<< HEAD
-	"@generated": "Tue, 21 May 2024 11:29:33",
-=======
-	"@generated": "Fri, 17 May 2024 11:53:40",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+	"@generated": "Fri, 17 May 2024 10:38:53",
 	"site":[ 
 		{
 			"@name": "https://dylane-mu.vercel.app",
@@ -40,7 +36,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=640&q=75",
+							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=750&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -48,7 +44,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=750&q=75",
+							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=828&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -139,27 +135,15 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://dylane-mu.vercel.app/%2Fimg%2Ffrfr.png&w=32&q=75",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://dylane-mu.vercel.app/404",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_ssgManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/image?q=75&url=%2Fimg%2Ffrfr.png&w=64",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_buildManifest.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -175,7 +159,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_app-6831b18d9aea6f7c.js",
+							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/main-5539d307500403cf.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -191,7 +175,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_app-6831b18d9aea6f7c.js",
+							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -318,11 +302,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-<<<<<<< HEAD
 					"sourceid": "81"
-=======
-					"sourceid": "65"
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 				},
 				{
 					"pluginid": "10063",
@@ -336,16 +316,6 @@
 					"instances":[ 
 						{
 							"uri": "https://dylane-mu.vercel.app/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-=======
-							"uri": "https://dylane-mu.vercel.app/%2Fimg%2Fenuk.png&w=64&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -369,7 +339,6 @@
 							"otherinfo": ""
 						},
 						{
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 							"uri": "https://dylane-mu.vercel.app/404",
 							"method": "GET",
 							"param": "",
@@ -378,44 +347,7 @@
 							"otherinfo": ""
 						},
 						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_buildManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_buildManifest.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_ssgManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_ssgManifest.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/framework-2c79e2a64abdb08b.js",
-=======
 							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/main-5539d307500403cf.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_app-6831b18d9aea6f7c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -431,7 +363,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/webpack-3f7530b7f4f31232.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -439,9 +371,15 @@
 							"otherinfo": ""
 						},
 						{
-=======
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/webpack-3f7530b7f4f31232.js",
+							"uri": "https://dylane-mu.vercel.app/_next/static/QqHpOy8zuvpQT2e7ss5Cy/_buildManifest.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dylane-mu.vercel.app/_next/static/QqHpOy8zuvpQT2e7ss5Cy/_ssgManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -471,7 +409,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10021",
@@ -493,38 +431,6 @@
 						},
 						{
 							"uri": "https://dylane-mu.vercel.app/_next/image?q=75&url=%2Fimg%2Fenuk.png&w=64",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_buildManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/image?q=75&url=%2Fimg%2Ffrfr.png&w=64",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_ssgManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_buildManifest.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_ssgManifest.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -557,7 +463,6 @@
 						},
 						{
 							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_error-4b61be14865575c5.js",
-<<<<<<< HEAD
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -566,8 +471,6 @@
 						},
 						{
 							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
-=======
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -589,6 +492,22 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dylane-mu.vercel.app/_next/static/QqHpOy8zuvpQT2e7ss5Cy/_buildManifest.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://dylane-mu.vercel.app/_next/static/QqHpOy8zuvpQT2e7ss5Cy/_ssgManifest.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
 					"count": "11",
@@ -597,7 +516,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -615,19 +534,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "query",
-<<<<<<< HEAD
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"7Oz7OFnE3eFx7LAkPW\", see evidence field for the suspicious comment/snippet."
-=======
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"3rOKiNo86QlXr0TFGD\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://dylane-mu.vercel.app/%2Fimg%2Fenuk.png&w=64&q=75",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"statusCode\":404}},\"page\":\"/_error\",\"query\":{},\"buildI\", see evidence field for the suspicious comment/snippet."
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"QqHpOy8zuvpQT2e7ss\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://dylane-mu.vercel.app/%2Fimg%2Ffrfr.png&w=32&q=75",
@@ -686,6 +593,14 @@
 							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \" */var n=\"function\"==typeof Symbol&&Symbol.for,r=n?Symbol.for(\"react.element\"):60103,i=n?Symbol.for(\"react.portal\"):60106,o=n?Sy\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query",
+							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){var t=\"undefined\"!=typeof globalThis?globalThis:\"undefined\"!=typeof window?window:\"undefined\"!=typeof global?global:\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://dylane-mu.vercel.app/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -704,15 +619,11 @@
 					],
 					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-<<<<<<< HEAD
-					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"7Oz7OFnE3eFx7LAkPW\", see evidence field for the suspicious comment/snippet.</p>",
-=======
-					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"3rOKiNo86QlXr0TFGD\", see evidence field for the suspicious comment/snippet.</p>",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"QqHpOy8zuvpQT2e7ss\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10109",
@@ -741,7 +652,7 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=640&q=75",
+							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=750&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -749,7 +660,7 @@
 							"otherinfo": "A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not."
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=750&q=75",
+							"uri": "https://dylane-mu.vercel.app/%2Fimg%2FDYLANE%20BENGONO.png&w=828&q=75",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -819,7 +730,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -871,11 +782,15 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-<<<<<<< HEAD
-							"evidence": "Age: 2012",
-=======
-							"evidence": "Age: 3384",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"evidence": "Age: 0",
+							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
+						},
+						{
+							"uri": "https://dylane-mu.vercel.app/%2Fimg%2Ffrfr.png&w=32&q=75",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -883,31 +798,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 434",
-							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
-						},
-						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_ssgManifest.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 434",
-							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
-						},
-						{
-							"uri": "https://dylane-mu.vercel.app/_next/image?q=75&url=%2Fimg%2Ffrfr.png&w=64",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 361195",
-							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
-						},
-						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_buildManifest.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Age: 3384",
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -915,20 +806,15 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-<<<<<<< HEAD
-							"evidence": "Age: 434",
-=======
-							"evidence": "Age: 3384",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_app-6831b18d9aea6f7c.js",
+							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/main-5539d307500403cf.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-<<<<<<< HEAD
-							"evidence": "Age: 434",
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -936,22 +822,15 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 434",
-=======
-							"evidence": "Age: 3384",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_app-6831b18d9aea6f7c.js",
+							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-<<<<<<< HEAD
-							"evidence": "Age: 434",
-=======
-							"evidence": "Age: 3384",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -959,11 +838,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-<<<<<<< HEAD
-							"evidence": "Age: 434",
-=======
-							"evidence": "Age: 3384",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -971,11 +846,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-<<<<<<< HEAD
-							"evidence": "Age: 434",
-=======
-							"evidence": "Age: 3384",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -983,7 +854,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 434",
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						},
 						{
@@ -991,7 +862,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 434",
+							"evidence": "Age: 0",
 							"otherinfo": "The presence of the 'Age' header indicates that a HTTP/1.1 compliant caching server is in use."
 						}
 					],
@@ -1001,7 +872,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>https://www.rfc-editor.org/rfc/rfc9110.html</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1014,44 +885,7 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_buildManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_buildManifest.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/7Oz7OFnE3eFx7LAkPWwe4/_ssgManifest.js",
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/static/3rOKiNo86QlXr0TFGD3xG/_ssgManifest.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/framework-2c79e2a64abdb08b.js",
-=======
 							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/main-5539d307500403cf.js",
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=31536000",
-							"otherinfo": ""
-						},
-						{
-<<<<<<< HEAD
-							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/pages/_app-6831b18d9aea6f7c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1067,8 +901,6 @@
 							"otherinfo": ""
 						},
 						{
-=======
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 							"uri": "https://dylane-mu.vercel.app/_next/static/chunks/webpack-3f7530b7f4f31232.js",
 							"method": "GET",
 							"param": "",
@@ -1083,19 +915,31 @@
 							"attack": "",
 							"evidence": "max-age=31536000",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://dylane-mu.vercel.app/_next/static/QqHpOy8zuvpQT2e7ss5Cy/_buildManifest.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://dylane-mu.vercel.app/_next/static/QqHpOy8zuvpQT2e7ss5Cy/_ssgManifest.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "6",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-<<<<<<< HEAD
-					"sourceid": "44"
-=======
-					"sourceid": "36"
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
+					"sourceid": "34"
 				},
 				{
 					"pluginid": "10049",
@@ -1132,17 +976,6 @@
 							"otherinfo": ""
 						},
 						{
-<<<<<<< HEAD
-=======
-							"uri": "https://dylane-mu.vercel.app/_next/image?q=75&url=%2Fimg%2Ffrfr.png&w=64",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
-						},
-						{
->>>>>>> 8cc3e8a96c5549d685406e057828af2395fa011c
 							"uri": "https://dylane-mu.vercel.app/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1159,13 +992,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				}
 			]
 		}
