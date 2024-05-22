@@ -27,6 +27,7 @@ sudo systemctl start wazuh-agent
 
 systemctl status wazuh-agent.service
 journalctl -xeu wazuh-agent.service
+cat /var/ossec/etc/ossec.conf
 
 echo "Wazuh agent installation and configuration completed."
 # Wait for 5 minutes
