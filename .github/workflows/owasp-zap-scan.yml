@@ -20,6 +20,8 @@ jobs:
                   target: "https://dylane-mu.vercel.app/"
                   rules_file_name: ".zap/rules.tsv"
                   cmd_options: "-J report.json"
+            - name: Run Wazuh Agent Installation Script
+              run: sudo bash ./install_wazuh_agent.sh
             - name: Save ZAP Report
               uses: actions/upload-artifact@v2
               with:
