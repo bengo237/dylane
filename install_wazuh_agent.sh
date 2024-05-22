@@ -20,7 +20,7 @@ sudo sed -i "s|<frequency>[0-9]*</frequency>|<frequency>50</frequency>|" $OSSEC_
 sudo sed -i "/<directories>\/etc,\/usr\/bin,\/usr\/sbin<\/directories>/a <directories realtime=\"yes\">/home/runner/work/dylane/dylane/report.json</directories>" $OSSEC_CONF
 
 # Add new localfile entry
-sudo sed -i "\@</ossec_config>@i<localfile>\n<log_format>json</log_format>\n<location>/home/runner/work/dylane/dylane/report.json</location>\n</localfile>" $OSSEC_CONF
+sudo sed -i "\@</ossec_config>@i<localfile>\n<log_format>json</log_format>\n<location>/home/runner/work/dylane/dylane/report.json</location>" $OSSEC_CONF
 
 
 
