@@ -25,7 +25,8 @@ sudo sed -i "/<localfile>\n    <log_format>syslog<\/log_format>\n    <location>\
 # Start the Wazuh agent service
 sudo systemctl start wazuh-agent
 
-# Enable Wazuh agent service to start on boot
+systemctl status wazuh-agent.service
+journalctl -xeu wazuh-agent.service
 
 echo "Wazuh agent installation and configuration completed."
 # Wait for 5 minutes
