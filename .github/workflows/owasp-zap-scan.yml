@@ -24,25 +24,5 @@ jobs:
 
             - name: Run Wazuh Agent Installation Script
               run: sudo bash ./install_wazuh_agent.sh
-
-            - name: Save ZAP Report
-              uses: actions/upload-artifact@v2
-              with:
-                  name: zap-report
-                  path: report.json
-
-            - name: Download ZAP Report
-              uses: actions/download-artifact@v2
-              with:
-                  name: zap-report
-                  path: ./zap_report
-
-            - name: Commit ZAP Report
-              run: |
-                  git config --global user.name 'github-actions[bot]'
-                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-                  git add ./zap_report/report.json
-                  git commit -m 'Add ZAP report'
-                  git push origin HEAD:${{ github.head_ref }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
