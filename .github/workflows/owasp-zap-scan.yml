@@ -13,6 +13,7 @@ jobs:
               uses: actions/checkout@v2
               with:
                   ref: report
+
             - name: ZAP Scan
               uses: zaproxy/action-baseline@master
               with:
@@ -20,18 +21,22 @@ jobs:
                   target: "https://dylane-mu.vercel.app/"
                   rules_file_name: ".zap/rules.tsv"
                   cmd_options: "-J report.json"
+
             - name: Run Wazuh Agent Installation Script
               run: sudo bash ./install_wazuh_agent.sh
+
             - name: Save ZAP Report
               uses: actions/upload-artifact@v2
               with:
                   name: zap-report
                   path: report.json
+
             - name: Download ZAP Report
               uses: actions/download-artifact@v2
               with:
                   name: zap-report
                   path: ./zap_report
+
             - name: Commit ZAP Report
               run: |
                   git config --global user.name 'github-actions[bot]'

@@ -21,7 +21,7 @@ cp $OSSEC_CONF $OSSEC_CONF.bak
 # Modify ossec.conf
 echo "Modifying ossec.conf..."
 
-# Update the server address and agent name
+# Update the server address
 sed -i "s|<address>IP</address>|<address>$MANAGER_IP</address>|" $OSSEC_CONF
 
 # Update frequency and directories entries
@@ -32,8 +32,13 @@ sed -i "s|<directories>/etc,/usr/bin,/usr/sbin</directories>|<directories realti
 sed -i "/<\/localfile>/a\\
   <localfile>\n    <log_format>json</log_format>\n    <location>/home/runner/work/dylane/dylane/report.json</location>\n  </localfile>" $OSSEC_CONF
 
-# Rename the agent
-sed -i "s|<name>.*</name>|<name>$AGENT_NAME</name>|" $OSSEC_CONF
+# Rename the agent (if the <name> tag exists, otherwise add it)
+if grep -q "<name>" $OSSEC_CONF; then
+  sed -i "s|<name>.*</name>|<name>$AGENT_NAME</name>|" $OSSEC_CONF
+else
+  sed -i "/<client>/a\\
+    <name>$AGENT_NAME</name>" $OSSEC_CONF
+fi
 
 # Restart Wazuh agent service
 echo "Restarting Wazuh Agent..."
