@@ -56,5 +56,7 @@ fi
 echo "Restarting Wazuh Agent..."
 systemctl start wazuh-agent
 systemctl enable wazuh-agent
+systemctl status wazuh-agent.service
+journalctl -xeu wazuh-agent.service
 
 echo "Wazuh Agent installation and configuration complete."
