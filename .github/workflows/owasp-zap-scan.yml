@@ -24,5 +24,6 @@ jobs:
 
             - name: Run Wazuh Agent Installation Script
               run: sudo bash ./install_wazuh_agent.sh
+
               env:
                   GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
