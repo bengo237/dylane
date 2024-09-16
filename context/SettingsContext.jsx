@@ -23,7 +23,7 @@ const listaTemas = {
 
 export default function SettingsProvider({ children }) {
 	const [theme, setTheme] = useState(darkTheme);
-	const [changeLanguage, setLanguage] = useState(false);
+	const [changeLanguage, setLanguage] = useState(true);
 
 	function changeTheme(newTheme) {
 		setTheme(listaTemas[newTheme]);
@@ -33,7 +33,7 @@ export default function SettingsProvider({ children }) {
 		setLanguage(!changeLanguage);
 	}
 
-	var language = changeLanguage == false ? frfrJson : enukJson ;
+	var language = changeLanguage ? enukJson : frfrJson;
 
 	return (
 		<SettingsContext.Provider value={{ changeTheme, changeLanguageLocalization, language }}>
