@@ -26,13 +26,13 @@ jobs:
                   cmd_options: "-J report.json"
 
             - name: Save ZAP Report
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               with:
                   name: zap-report
                   path: report.json
 
             - name: Download ZAP Report
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               with:
                   name: zap-report
                   path: ./zap_report
