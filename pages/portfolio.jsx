@@ -455,7 +455,7 @@ export default function Portifolio() {
 			<ContainerTitleSection>
 				<TitleSection>{language.portifolioPage.title}</TitleSection>
 			</ContainerTitleSection>
-			<ContainerGrid view={view}>
+			<ContainerGrid>
 				{data ? (
 					data.map((project, index) => (
 						<ScrollAnimation animateIn="fadeIn" animateOnce key={index}>
