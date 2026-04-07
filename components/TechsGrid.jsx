@@ -6,26 +6,27 @@ import { Amazonaws } from "@styled-icons/simple-icons/Amazonaws";
 import { Visualstudiocode } from "@styled-icons/simple-icons/Visualstudiocode";
 import { Mongodb } from "@styled-icons/simple-icons/Mongodb";
 import { Postgresql } from "@styled-icons/simple-icons/Postgresql";
-import { Sqlite } from "@styled-icons/simple-icons/Sqlite";
 import { Javascript } from "@styled-icons/boxicons-logos/Javascript";
 import { Java } from "@styled-icons/fa-brands/Java";
 import { Python } from "@styled-icons/boxicons-logos/Python";
 import { Nodejs } from "@styled-icons/boxicons-logos/Nodejs";
 import { Html5 } from "@styled-icons/boxicons-logos/Html5";
 import { Git } from "@styled-icons/boxicons-logos/Git";
-import { Oracle } from "@styled-icons/simple-icons/Oracle";
 import { Mysql } from "@styled-icons/simple-icons/Mysql";
 import { Linux } from "@styled-icons/fa-brands/Linux";
 import { Windows } from "@styled-icons/boxicons-logos/Windows";
 import { Android } from "@styled-icons/boxicons-logos/Android";
-import { Ios } from "@styled-icons/simple-icons/Ios";
 import { Figma } from "@styled-icons/boxicons-logos/Figma";
 import { Adobephotoshop } from "@styled-icons/simple-icons/Adobephotoshop";
 import { Docker } from "@styled-icons/boxicons-logos/Docker";
-import { Wordpress } from "@styled-icons/boxicons-logos/Wordpress";
+import { Kubernetes } from "@styled-icons/simple-icons/Kubernetes";
+import { Terraform } from "@styled-icons/simple-icons/Terraform";
+import { Ansible } from "@styled-icons/simple-icons/Ansible";
+import { Microsoftazure } from "@styled-icons/simple-icons/Microsoftazure";
 import { Kalilinux } from "@styled-icons/simple-icons/Kalilinux";
-import { Nextcloud } from "@styled-icons/simple-icons/Nextcloud";
 import { Nginx } from "@styled-icons/simple-icons/Nginx";
+import { Splunk } from "@styled-icons/simple-icons/Splunk";
+import { Elasticsearch } from "@styled-icons/simple-icons/Elasticsearch";
 
 const TechGrid = styled.footer`
 	padding-top: 30px;
@@ -75,29 +76,30 @@ export const TitleSection = styled.h2`
 
 const icons = [
 	<Docker key="docker" />,
-	<Wordpress key="wordpress" />,
-	<Kalilinux key="kalilinux" />,
-	<Nextcloud key="nextcloud" />,
+	<Kubernetes key="kubernetes" />,
+	<Terraform key="terraform" />,
+	<Ansible key="ansible" />,
+	<Microsoftazure key="azure" />,
+	<Amazonaws key="aws" />,
+	<Splunk key="splunk" />,
+	<Elasticsearch key="elastic" />,
+	<Kalilinux key="kali" />,
 	<Nginx key="nginx" />,
-	<Amazonaws key="amazonaws" />,
-	<Visualstudiocode key="vscode" />,
-	<Mongodb key="mongodb" />,
-	<Postgresql key="postgresql" />,
-	<Sqlite key="sqlite" />,
-	<Javascript key="javascript" />,
-	<Java key="java" />,
-	<Python key="python" />,
-	<Nodejs key="nodejs" />,
-	<Html5 key="html5" />,
-	<Git key="git" />,
-	<Oracle key="oracle" />,
-	<Mysql key="mysql" />,
 	<Linux key="linux" />,
 	<Windows key="windows" />,
-	<Android key="android" />,
-	<Ios key="ios" />,
+	<Python key="python" />,
+	<Java key="java" />,
+	<Javascript key="js" />,
+	<Nodejs key="node" />,
+	<Html5 key="html5" />,
+	<Git key="git" />,
+	<Postgresql key="pg" />,
+	<Mongodb key="mongo" />,
+	<Mysql key="mysql" />,
+	<Visualstudiocode key="vscode" />,
 	<Figma key="figma" />,
-	<Adobephotoshop key="photoshop" />,
+	<Adobephotoshop key="ps" />,
+	<Android key="android" />,
 ];
 
 export default function TechsGrid() {
