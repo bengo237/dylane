@@ -396,7 +396,7 @@ export default function HomePage() {
 
 				<TitleLandingContainer>
 					<StatusBadge>ONLINE · AVAILABLE</StatusBadge>
-					<RoleBadge>[ RSSI · Security Engineer ]</RoleBadge>
+					<RoleBadge>[ CISO · Security Engineer ]</RoleBadge>
 
 					<TerminalBlock>
 						<TerminalPrompt>whoami</TerminalPrompt>
