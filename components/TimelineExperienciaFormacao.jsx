@@ -11,236 +11,334 @@ import { LearningApp } from "@styled-icons/fluentui-system-filled/LearningApp";
 import { Work } from "@styled-icons/material-rounded/Work";
 import { TrophyFill } from "@styled-icons/bootstrap/TrophyFill";
 
-const LearningAppIcon = styled(LearningApp)`
-	color: ${(props) => props.theme.colors.backgroundSecondary};
-	width: 40px;
-	height: 40px;
-`;
+// ── Category accent colors ──────────────────────────────────────────
+const C = {
+	work:      "#0096c7",   // electric blue  — expérience pro
+	education: "#f0883e",   // amber          — formation académique
+	cert:      "#3fb950",   // green          — certifications
+	award:     "#e3b341",   // gold           — récompenses
+};
 
-const SchoolIcon = styled(School)`
-	color: ${(props) => props.theme.colors.backgroundSecondary};
-	width: 40px;
-	height: 40px;
-`;
+// ── Icons ────────────────────────────────────────────────────────────
+const iconStyle = (color) => ({
+	width: 40, height: 40, color,
+});
 
-const WorkIcon = styled(Work)`
-	color: ${(props) => props.theme.colors.backgroundSecondary};
-	width: 40px;
-	height: 40px;
-`;
+const WorkIcon      = styled(Work)`${iconStyle(C.work)}`;
+const SchoolIcon    = styled(School)`${iconStyle(C.education)}`;
+const CertIcon      = styled(LearningApp)`${iconStyle(C.cert)}`;
+const TrophyIcon    = styled(TrophyFill)`width:36px;height:36px;color:${C.award};`;
 
-const TrophyIcon = styled(TrophyFill)`
-	color: ${(props) => props.theme.colors.backgroundSecondary};
-	width: 36px;
-	height: 36px;
-`;
-
+// ── Card wrapper ─────────────────────────────────────────────────────
 const TimelineContent = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
+	gap: 4px;
 `;
 
-export const TitleContentTimeline = styled.h3`
-	.vertical-timeline-element-title {
-		color: ${(props) => props.theme.colors.branding};
-	}
-	@media (max-width: 1600px) {
-		font-size: ${(props) => props.theme.fontSizes.xl};
-	}
-	@media (max-width: 1400px) {
-		font-size: ${(props) => props.theme.fontSizes.lg};
-	}
-	@media (max-width: 1200px) {
-		font-size: ${(props) => props.theme.fontSizes.md};
-	}
-	@media (max-width: 900px) {
-		font-size: ${(props) => props.theme.fontSizes.sm};
-	}
+// ── Category label pill ───────────────────────────────────────────────
+const CategoryPill = styled.span`
+	display: inline-block;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	padding: 2px 10px;
+	border-radius: 2px;
+	margin-bottom: 8px;
+	background-color: ${(props) => props.$color}22;
+	color: ${(props) => props.$color};
+	border: 1px solid ${(props) => props.$color}55;
 `;
 
+// ── Year badge ────────────────────────────────────────────────────────
+const YearBadge = styled.h3`
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
+	font-weight: 700;
+	color: ${(props) => props.$color};
+	padding: 2px 10px;
+	border-radius: 3px;
+	border: 1px solid ${(props) => props.$color};
+	margin-bottom: 8px;
+	display: inline-block;
+	letter-spacing: 0.06em;
+`;
+
+// ── Bold label line ───────────────────────────────────────────────────
 const BoldText = styled.h4`
-	color: ${(props) => props.theme.colors.title};
-	font-weight: 800;
-	margin-top: 2px;
-	margin-bottom: 2px;
+	color: ${(props) => props.theme.colors.subtitle};
+	font-weight: 600;
+	font-size: 13px;
+	margin: 1px 0;
+	line-height: 1.5;
+
 	span {
 		font-weight: 400;
+		color: ${(props) => props.theme.colors.body};
 	}
 `;
 
-const YearBadge = styled.h3`
-	color: ${(props) => props.theme.colors.branding};
-	padding: 0 10px;
-	border-radius: 200px;
-	border: 2px solid ${(props) => props.theme.colors.branding};
-	margin-bottom: 10px;
-	display: inline-block;
+// ── Title line (larger) ───────────────────────────────────────────────
+const EntryTitle = styled.h4`
+	color: ${(props) => props.theme.colors.title};
+	font-weight: 700;
+	font-size: 14px;
+	margin: 2px 0 4px;
+	line-height: 1.4;
+
+	span {
+		font-weight: 400;
+		color: ${(props) => props.theme.colors.body};
+	}
 `;
 
 export default function TimelinePortifolio() {
 	const { language } = useContext(SettingsContext);
 	const theme = useTheme();
 
-	const elementStyle = {
-		borderBottom: `8px solid ${theme.colors.branding}`,
-		boxShadow: "0px 0px 0px 0px #ccc",
-		backgroundColor: theme.colors.backgroundSecondary,
-	};
-	const iconStyle = {
-		background: theme.colors.branding,
-		color: "#fff",
-		boxShadow: `0 0 0 0px ${theme.colors.branding}`,
-	};
-	const arrowStyle = {
-		borderRight: `7px solid ${theme.colors.backgroundSecondary}`,
-	};
+	// ── Per-category card & icon styles ──────────────────────────────
+	const cardStyle = (color) => ({
+		backgroundColor: theme.colors.panel || theme.colors.backgroundSecondary,
+		borderBottom: `4px solid ${color}`,
+		borderLeft: `3px solid ${color}33`,
+		boxShadow: `0 2px 12px rgba(0,0,0,0.25)`,
+	});
+
+	const iconBg = (color) => ({
+		background: `${color}18`,
+		border: `2px solid ${color}`,
+		boxShadow: `0 0 0 2px ${color}33`,
+	});
+
+	const arrowStyle = (color) => ({
+		borderRight: `7px solid ${color}33`,
+	});
+
+	const L = language.experiencePage.timeline;
 
 	return (
-		<VerticalTimeline lineColor={theme.colors.branding}>
+		<VerticalTimeline lineColor={theme.colors.border || theme.colors.backgroundSecondary}>
 
-			{/* ── BVMAC – RSSI ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<WorkIcon />} contentArrowStyle={arrowStyle}>
+			{/* ════════════════ EXPÉRIENCE PROFESSIONNELLE ════════════════ */}
+
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.work)}
+				iconStyle={iconBg(C.work)}
+				icon={<WorkIcon />}
+				contentArrowStyle={arrowStyle(C.work)}
+			>
 				<TimelineContent>
-					<YearBadge>2024 – {language.experiencePage.timeline.labelPresent}</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelCompany}: <span>Bourse des Valeurs Mobilières de l'Afrique Centrale | BVMAC</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelPosition}: <span>RSSI – Responsable Sécurité des Systèmes d'Information</span></BoldText>
+					<CategoryPill $color={C.work}>● {L.labelPosition}</CategoryPill>
+					<YearBadge $color={C.work}>2024 – {L.labelPresent}</YearBadge>
+					<EntryTitle>{L.labelCompany}: <span>Bourse des Valeurs Mobilières de l'Afrique Centrale | BVMAC</span></EntryTitle>
+					<BoldText>{L.labelPosition}: <span>RSSI – Responsable Sécurité des Systèmes d'Information</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── adorsys – Security Engineer ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<WorkIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.work)}
+				iconStyle={iconBg(C.work)}
+				icon={<WorkIcon />}
+				contentArrowStyle={arrowStyle(C.work)}
+			>
 				<TimelineContent>
-					<YearBadge>2023 – {language.experiencePage.timeline.labelPresent}</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelCompany}: <span>adorsys GmbH & Co. KG</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelPosition}: <span>Security Engineer</span></BoldText>
+					<CategoryPill $color={C.work}>● {L.labelPosition}</CategoryPill>
+					<YearBadge $color={C.work}>2023 – {L.labelPresent}</YearBadge>
+					<EntryTitle>{L.labelCompany}: <span>adorsys GmbH & Co. KG</span></EntryTitle>
+					<BoldText>{L.labelPosition}: <span>Security Engineer</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── PAK – Cybersecurity Engineer Intern ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<WorkIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.work)}
+				iconStyle={iconBg(C.work)}
+				icon={<WorkIcon />}
+				contentArrowStyle={arrowStyle(C.work)}
+			>
 				<TimelineContent>
-					<YearBadge>2023</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelCompany}: <span>Port Autonome de Kribi, PAK</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelPosition}: <span>Cybersecurity Engineer Intern</span></BoldText>
+					<CategoryPill $color={C.work}>● {L.labelPosition}</CategoryPill>
+					<YearBadge $color={C.work}>2023</YearBadge>
+					<EntryTitle>{L.labelCompany}: <span>Port Autonome de Kribi, PAK</span></EntryTitle>
+					<BoldText>{L.labelPosition}: <span>Cybersecurity Engineer Intern</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── DGSN – Network Security Intern ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<WorkIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.work)}
+				iconStyle={iconBg(C.work)}
+				icon={<WorkIcon />}
+				contentArrowStyle={arrowStyle(C.work)}
+			>
 				<TimelineContent>
-					<YearBadge>2022</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelCompany}: <span>Délégation Générale à la Sûreté Nationale, DGSN</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelPosition}: <span>Pre-Engineer Network Security Intern</span></BoldText>
+					<CategoryPill $color={C.work}>● {L.labelPosition}</CategoryPill>
+					<YearBadge $color={C.work}>2022</YearBadge>
+					<EntryTitle>{L.labelCompany}: <span>Délégation Générale à la Sûreté Nationale, DGSN</span></EntryTitle>
+					<BoldText>{L.labelPosition}: <span>Pre-Engineer Network Security Intern</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── ENSPY – Master ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<SchoolIcon />} contentArrowStyle={arrowStyle}>
+			{/* ════════════════ FORMATION ACADÉMIQUE ════════════════ */}
+
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.education)}
+				iconStyle={iconBg(C.education)}
+				icon={<SchoolIcon />}
+				contentArrowStyle={arrowStyle(C.education)}
+			>
 				<TimelineContent>
-					<YearBadge>2023</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelMasterDegree} – {language.experiencePage.timeline.labelUniversity}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>{language.experiencePage.timeline.labelDegreeTitle}</span></BoldText>
+					<CategoryPill $color={C.education}>◈ {L.labelMasterDegree}</CategoryPill>
+					<YearBadge $color={C.education}>2023</YearBadge>
+					<EntryTitle>{L.labelInstitution}: <span>École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</span></EntryTitle>
+					<BoldText>{L.labelCategory}: <span>{L.labelMasterDegree} – {L.labelUniversity}</span></BoldText>
+					<BoldText>{L.labelTitle}: <span>{L.labelDegreeTitle}</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── ISO/IEC 27001 Associate ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			{/* ════════════════ CERTIFICATIONS ════════════════ */}
+
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2024</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>ISO/IEC 27001 Associate</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2024</YearBadge>
+					<EntryTitle>ISO/IEC 27001 Associate</EntryTitle>
+					<BoldText>{L.labelCategory}: <span>{L.labelProfessionalCourse}</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── CCNP ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2024</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>Cisco</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>CCNP – Cisco Certified Network Professional</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2024</YearBadge>
+					<EntryTitle>CCNP – Cisco Certified Network Professional</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>Cisco</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── CCT ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2024</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>EC-COUNCIL</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>CCT: Certified Cybersecurity Technician</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2024</YearBadge>
+					<EntryTitle>CCT: Certified Cybersecurity Technician</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>EC-COUNCIL</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── CPTA v2 ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2023</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>CyberWarfare Lab</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>CPTA: Certified Purple Team Analyst V2</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2023</YearBadge>
+					<EntryTitle>CPTA: Certified Purple Team Analyst V2</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>CyberWarfare Lab</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── Cisco Ethical Hacker ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2023</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>Cisco Netacad</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>Cisco Ethical Hacker</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2023</YearBadge>
+					<EntryTitle>Cisco Ethical Hacker</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>Cisco Netacad</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── Fortinet NSE4 ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2022</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>Fortinet</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>NSE4: Network Security Professional</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2022</YearBadge>
+					<EntryTitle>NSE4: Network Security Professional</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>Fortinet</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── CSCU ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<LearningAppIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.cert)}
+				iconStyle={iconBg(C.cert)}
+				icon={<CertIcon />}
+				contentArrowStyle={arrowStyle(C.cert)}
+			>
 				<TimelineContent>
-					<YearBadge>2022</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>EC-COUNCIL</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelProfessionalCourse}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>CSCU: Certified Secure Computer User V2</span></BoldText>
+					<CategoryPill $color={C.cert}>✓ {L.labelProfessionalCourse}</CategoryPill>
+					<YearBadge $color={C.cert}>2022</YearBadge>
+					<EntryTitle>CSCU: Certified Secure Computer User V2</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>EC-COUNCIL</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── Lauréat o'100 OKWELEANS ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<TrophyIcon />} contentArrowStyle={arrowStyle}>
+			{/* ════════════════ RÉCOMPENSES ════════════════ */}
+
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.award)}
+				iconStyle={iconBg(C.award)}
+				icon={<TrophyIcon />}
+				contentArrowStyle={arrowStyle(C.award)}
+			>
 				<TimelineContent>
-					<YearBadge>2023</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelAward}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>Lauréat – Programme d'Excellence o'100 THE OKWELEANS 3e Édition</span></BoldText>
+					<CategoryPill $color={C.award}>★ {L.labelAward}</CategoryPill>
+					<YearBadge $color={C.award}>2023</YearBadge>
+					<EntryTitle>Lauréat – Programme d'Excellence o'100 THE OKWELEANS 3e Édition</EntryTitle>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── Hall of Fame EC-COUNCIL ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<TrophyIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.award)}
+				iconStyle={iconBg(C.award)}
+				icon={<TrophyIcon />}
+				contentArrowStyle={arrowStyle(C.award)}
+			>
 				<TimelineContent>
-					<YearBadge>2022</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>EC-COUNCIL</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>{language.experiencePage.timeline.labelAward}</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>Hall of Fame – Cyber Challenge</span></BoldText>
+					<CategoryPill $color={C.award}>★ {L.labelAward}</CategoryPill>
+					<YearBadge $color={C.award}>2022</YearBadge>
+					<EntryTitle>Hall of Fame – Cyber Challenge</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>EC-COUNCIL</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
-			{/* ── AEC-CTF ── */}
-			<VerticalTimelineElement className="vertical-timeline-element--work" contentStyle={elementStyle} iconStyle={iconStyle} icon={<TrophyIcon />} contentArrowStyle={arrowStyle}>
+			<VerticalTimelineElement
+				contentStyle={cardStyle(C.award)}
+				iconStyle={iconBg(C.award)}
+				icon={<TrophyIcon />}
+				contentArrowStyle={arrowStyle(C.award)}
+			>
 				<TimelineContent>
-					<YearBadge>2021</YearBadge>
-					<BoldText>{language.experiencePage.timeline.labelInstitution}: <span>AEC-CTF</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelCategory}: <span>Capture The Flag</span></BoldText>
-					<BoldText>{language.experiencePage.timeline.labelTitle}: <span>Lauréat – Olympiades des Experts en Cybersécurité</span></BoldText>
+					<CategoryPill $color={C.award}>★ {L.labelAward}</CategoryPill>
+					<YearBadge $color={C.award}>2021</YearBadge>
+					<EntryTitle>Lauréat – Olympiades des Experts en Cybersécurité</EntryTitle>
+					<BoldText>{L.labelInstitution}: <span>AEC-CTF</span></BoldText>
+					<BoldText>{L.labelCategory}: <span>Capture The Flag</span></BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>
 
