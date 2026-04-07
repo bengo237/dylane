@@ -388,9 +388,9 @@ export default function HomePage() {
 			<FloatNavigationBar />
 			<ProgressBar color={theme.colors.branding} height={5} />
 			<Head
-				title="Dylane Bengono| Portfolio"
-				metaDescription="Portfolio de Dylane Bengono, projets et compétences"
-				keywords="Dylane Bengono, Cybersécurité, Programmation, CSIRT, Pentesting"
+				title="bengo237.sh — Security Portfolio"
+				metaDescription="Ingénieur en Cybersécurité & Investigation Numérique. RSSI · Pentester · CTF Player. Je protège les systèmes le jour, je les teste la nuit."
+				keywords="Dylane Bengono, Cybersécurité, Pentesting, RSSI, CTF, OSINT, Forensique, DevSecOps, SOC, Wazuh, ISO 27001"
 			/>
 			<LandingPageContainer>
 
