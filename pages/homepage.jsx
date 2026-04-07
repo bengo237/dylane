@@ -396,13 +396,13 @@ export default function HomePage() {
 
 				<TitleLandingContainer>
 					<StatusBadge>ONLINE · AVAILABLE</StatusBadge>
-					<RoleBadge>[ CISO · Security Engineer ]</RoleBadge>
+					<RoleBadge>[ Cyber Resilience · Security Operations (SIEM/SOC) ]</RoleBadge>
 
 					<TerminalBlock>
 						<TerminalPrompt>whoami</TerminalPrompt>
 						<TerminalOutput>Dylane Bengono</TerminalOutput>
 						<TerminalPrompt>cat role.txt</TerminalPrompt>
-						<TerminalOutput>RSSI | Security Engineer</TerminalOutput>
+						<TerminalOutput>Information Security Lead | Governance, Risk & Compliance (GRC</TerminalOutput>
 						<TerminalPrompt>status --check</TerminalPrompt>
 						<TerminalOnline>● ONLINE · AVAILABLE</TerminalOnline>
 					</TerminalBlock>
