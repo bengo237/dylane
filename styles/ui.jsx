@@ -59,12 +59,16 @@ export const BodyText = styled.p`
 	}
 `;
 
+// Terminal dots for section title bar
+const TerminalDots = () => null; // declared below via CSS pseudo-elements
+
 export const TitleSection = styled.h2`
-	font-weight: 700;
+	font-weight: 600;
 	color: ${(props) => props.theme.colors.title};
-	font-size: 26px;
+	font-size: 15px;
 	font-family: 'JetBrains Mono', monospace;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
 
 	&::before {
 		content: "// ";
@@ -73,37 +77,55 @@ export const TitleSection = styled.h2`
 	}
 
 	@media (max-width: 900px) {
-		font-size: 18px;
+		font-size: 13px;
 	}
 `;
 
 export const ContainerTitleSection = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
+	gap: 12px;
 	margin-bottom: 30px;
 	width: 100%;
-	padding-bottom: 12px;
-	border-bottom: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundSecondary};
+	padding: 8px 16px;
+	background-color: ${(props) =>
+		props.theme.colors.backgroundSecondary || props.theme.colors.panel};
+	border: 1px solid ${(props) =>
+		props.theme.colors.border || props.theme.colors.backgroundSecondary};
+	border-left: 3px solid ${(props) => props.theme.colors.branding};
+	border-radius: 0;
+
+	/* Terminal dots */
+	&::before {
+		content: "● ● ●";
+		font-size: 9px;
+		letter-spacing: 4px;
+		color: ${(props) => props.theme.colors.branding};
+		opacity: 0.5;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
 
 	@media (max-width: 900px) {
 		margin-top: 40px;
+		padding: 6px 12px;
 	}
 
 	svg {
 		color: ${(props) => props.theme.colors.branding};
-		width: 44px;
-		height: 44px;
-		margin-right: 10px;
+		width: 20px;
+		height: 20px;
+		flex-shrink: 0;
 
 		@media (max-width: 1400px) {
-			width: 34px;
-			height: 34px;
+			width: 18px;
+			height: 18px;
 		}
 
 		@media (max-width: 900px) {
-			width: 28px;
-			height: 28px;
+			width: 16px;
+			height: 16px;
 		}
 	}
 `;

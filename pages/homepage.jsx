@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 
 //Third's librarys
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Typed from "typed.js";
 import { useTheme } from "styled-components";
 import ProgressBar from "react-progressbar-on-scroll";
@@ -32,6 +32,159 @@ const LandingPageContainer = styled.div`
 	}
 `;
 
+// Glitch keyframes
+const glitch1 = keyframes`
+	0%, 100% {
+		clip-path: inset(0 0 95% 0);
+		transform: translate(-2px, 0);
+		opacity: 1;
+	}
+	20% {
+		clip-path: inset(30% 0 60% 0);
+		transform: translate(2px, 0);
+	}
+	40% {
+		clip-path: inset(70% 0 10% 0);
+		transform: translate(-1px, 0);
+	}
+	60% {
+		clip-path: inset(15% 0 75% 0);
+		transform: translate(1px, 0);
+	}
+	80% {
+		clip-path: inset(85% 0 5% 0);
+		transform: translate(-2px, 0);
+	}
+`;
+
+const glitch2 = keyframes`
+	0%, 100% {
+		clip-path: inset(80% 0 5% 0);
+		transform: translate(2px, 0);
+		opacity: 1;
+	}
+	25% {
+		clip-path: inset(10% 0 80% 0);
+		transform: translate(-2px, 0);
+	}
+	50% {
+		clip-path: inset(50% 0 30% 0);
+		transform: translate(1px, 0);
+	}
+	75% {
+		clip-path: inset(25% 0 55% 0);
+		transform: translate(-1px, 0);
+	}
+`;
+
+const GlitchWrapper = styled.div`
+	position: relative;
+	display: inline-block;
+
+	&:hover .glitch-layer-1 {
+		animation: ${glitch1} 0.4s steps(2, end) infinite;
+	}
+
+	&:hover .glitch-layer-2 {
+		animation: ${glitch2} 0.4s steps(2, end) infinite;
+	}
+`;
+
+const GlitchBase = styled.span`
+	font-size: 60px;
+	font-weight: 800;
+	color: ${(props) => props.theme.colors.branding};
+	font-family: 'JetBrains Mono', monospace;
+	display: block;
+
+	@media (max-width: 1400px) {
+		font-size: 40px;
+	}
+
+	@media (max-width: 1200px) {
+		font-size: 36px;
+	}
+
+	@media (max-width: 601px) {
+		font-size: 26px;
+		text-align: center;
+	}
+`;
+
+const GlitchLayer = styled.span`
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	font-size: 60px;
+	font-weight: 800;
+	font-family: 'JetBrains Mono', monospace;
+	display: block;
+	pointer-events: none;
+	opacity: 0;
+
+	@media (max-width: 1400px) {
+		font-size: 40px;
+	}
+
+	@media (max-width: 1200px) {
+		font-size: 36px;
+	}
+
+	@media (max-width: 601px) {
+		font-size: 26px;
+	}
+`;
+
+// Terminal block
+const TerminalBlock = styled.div`
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 13px;
+	line-height: 1.8;
+	background-color: ${(props) =>
+		props.theme.name === "dark" ? "rgba(0,0,0,0.35)" : "rgba(0,0,0,0.06)"};
+	border: 1px solid ${(props) => props.theme.colors.branding}44;
+	border-left: 3px solid ${(props) => props.theme.colors.branding};
+	border-radius: 2px;
+	padding: 14px 18px;
+	margin-bottom: 18px;
+	width: 100%;
+
+	@media (max-width: 600px) {
+		font-size: 11px;
+		padding: 10px 12px;
+	}
+`;
+
+const TerminalPrompt = styled.div`
+	color: ${(props) => props.theme.colors.branding};
+	&::before {
+		content: "$ ";
+		color: ${(props) => props.theme.colors.branding};
+		font-weight: 600;
+	}
+`;
+
+const TerminalOutput = styled.div`
+	color: ${(props) => props.theme.colors.body};
+	padding-left: 4px;
+	&::before {
+		content: "> ";
+		color: ${(props) => props.theme.colors.inactiveTitle || props.theme.colors.body};
+		opacity: 0.6;
+	}
+`;
+
+const TerminalOnline = styled.div`
+	padding-left: 4px;
+	&::before {
+		content: "> ";
+		color: ${(props) => props.theme.colors.inactiveTitle || props.theme.colors.body};
+		opacity: 0.6;
+	}
+	color: ${(props) => props.theme.colors.statusOnline || "#3fb950"};
+`;
+
 const TitleLandingContainer = styled.div`
 	display: flex;
 	align-items: flex-start;
@@ -45,7 +198,6 @@ const TitleLandingContainer = styled.div`
 		transition: all 0.3s ease;
 		gap: 20px;
 		justify-items: center;
-		//background-color: #ccc;
 		width: 100%;
 	}
 
@@ -53,6 +205,7 @@ const TitleLandingContainer = styled.div`
 		font-size: 60px;
 		font-weight: 800;
 		color: ${(props) => props.theme.colors.branding};
+		font-family: 'JetBrains Mono', monospace;
 
 		@media (max-width: 1400px) {
 			font-size: 40px;
@@ -105,6 +258,11 @@ const SubTitleLanding = styled.div`
 	}
 `;
 
+const pulseDot = keyframes`
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.3; }
+`;
+
 const StatusBadge = styled.div`
 	display: inline-flex;
 	align-items: center;
@@ -119,12 +277,7 @@ const StatusBadge = styled.div`
 	&::before {
 		content: "●";
 		font-size: 10px;
-		animation: pulse 2s infinite;
-	}
-
-	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.4; }
+		animation: ${pulseDot} 2s infinite;
 	}
 `;
 
@@ -139,7 +292,7 @@ const RoleBadge = styled.div`
 	text-transform: uppercase;
 	padding: 4px 10px;
 	border: 1px solid ${(props) => props.theme.colors.branding};
-	border-radius: 3px;
+	border-radius: 0;
 	margin-bottom: 14px;
 	opacity: 0.85;
 
@@ -163,21 +316,40 @@ const ContainerAnimation = styled.div`
 const ButtonSaibaMais = styled.button`
 	z-index: 1;
 	position: relative;
-	width: 200px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-width: 200px;
 	height: 44px;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	transition: all 0.3s ease;
-	font-size: ${(props) => props.theme.fontSizes.lg};
-	border: none;
-	color: ${(props) => props.theme.colors.background};
-	border-radius: 4px;
-	background-color: ${(props) => props.theme.colors.branding};
-	font-weight: 700;
+	transition: all 0.2s ease;
+	font-size: 13px;
+	font-family: 'JetBrains Mono', monospace;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	border: 1px solid ${(props) => props.theme.colors.branding};
+	border-radius: 0;
+	color: ${(props) => props.theme.colors.branding};
+	background-color: transparent;
+	padding: 0 20px;
+	text-transform: uppercase;
+
+	&::before {
+		content: "[";
+		opacity: 0.6;
+	}
+
+	&::after {
+		content: "]";
+		opacity: 0.6;
+	}
 
 	&:hover {
 		cursor: pointer;
-		opacity: 0.8;
+		background-color: ${(props) => props.theme.colors.branding};
+		color: ${(props) => props.theme.colors.background};
 	}
 
 	@media (max-width: 601px) {
@@ -225,14 +397,45 @@ export default function HomePage() {
 				<TitleLandingContainer>
 					<StatusBadge>ONLINE · AVAILABLE</StatusBadge>
 					<RoleBadge>[ RSSI · Security Engineer ]</RoleBadge>
+
+					<TerminalBlock>
+						<TerminalPrompt>whoami</TerminalPrompt>
+						<TerminalOutput>Dylane Bengono</TerminalOutput>
+						<TerminalPrompt>cat role.txt</TerminalPrompt>
+						<TerminalOutput>RSSI | Security Engineer</TerminalOutput>
+						<TerminalPrompt>status --check</TerminalPrompt>
+						<TerminalOnline>● ONLINE · AVAILABLE</TerminalOnline>
+					</TerminalBlock>
+
 					<SubTitleLanding>{language.landingPage.apresentationText}</SubTitleLanding>
-					<span ref={typedRef} className="type-string" />
+
+					<GlitchWrapper>
+						<GlitchBase>
+							<span ref={typedRef} className="type-string" />
+						</GlitchBase>
+						<GlitchLayer
+							className="glitch-layer-1"
+							style={{ color: "#ff003c", left: "2px" }}
+							aria-hidden="true"
+						>
+							Dylane Bengono
+						</GlitchLayer>
+						<GlitchLayer
+							className="glitch-layer-2"
+							style={{ color: "#00ffe7", left: "-2px" }}
+							aria-hidden="true"
+						>
+							Dylane Bengono
+						</GlitchLayer>
+					</GlitchWrapper>
+
 					<SubTitleLanding>{language.landingPage.resumeText}</SubTitleLanding>
 					<a href="#section-a-propos" onClick={scrollToSection}>
-						<ButtonSaibaMais>{language.landingPage.buttonText}</ButtonSaibaMais>
+						<ButtonSaibaMais>→ {language.landingPage.buttonText}</ButtonSaibaMais>
 					</a>
 					<SocialNetworkRowStack />
 				</TitleLandingContainer>
+
 				<ContainerAnimation>
 					<LandingAnimation />
 				</ContainerAnimation>

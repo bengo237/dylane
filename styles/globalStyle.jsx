@@ -25,6 +25,25 @@ html, body, :root {
     background-size: 28px 28px;
   }
 
+  /* Scanline overlay effect */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  }
+
   ::selection {
     background: ${(props) => props.theme.colors.branding};
     color: ${(props) => props.theme.colors.background};
