@@ -121,17 +121,27 @@ const GithubStatsCard = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	width: 300px;
-	height: 420px;
-	border: 2px solid ${(props) => props.theme.colors.branding};
-	background-color: ${(props) => props.theme.colors.backgroundPage};
-	border-radius: 8px;
+	width: 280px;
+	height: 400px;
+	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.branding};
+	border-top: 3px solid ${(props) => props.theme.colors.branding};
+	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
+	border-radius: 0;
 	flex-direction: column;
 	overflow: hidden;
 	position: relative;
 
+	@media (max-width: 900px) {
+		width: 100%;
+		max-width: 380px;
+		height: auto;
+		min-height: 380px;
+	}
+
 	@media (max-width: 601px) {
 		width: 100%;
+		max-width: 100%;
+		min-height: 340px;
 	}
 
 	.image-rounded {
@@ -140,18 +150,27 @@ const GithubStatsCard = styled.div`
 
 	.background {
 		width: 100%;
-		height: 150px;
-		background-color: ${(props) => props.theme.colors.branding};
+		height: 120px;
+		background: linear-gradient(135deg, ${(props) => props.theme.colors.branding}88, ${(props) => props.theme.colors.branding}33);
+		flex-shrink: 0;
 	}
 
 	.img {
-		width: 140px;
-		height: 140px;
+		width: 120px;
+		height: 120px;
 		border-radius: 50%;
-		border: 5px solid ${(props) => props.theme.colors.branding};
+		border: 4px solid ${(props) => props.theme.colors.branding};
 		background-color: ${(props) => props.theme.colors.backgroundSecondary};
 		position: absolute;
-		top: 30px;
+		top: 60px;
+		left: 50%;
+		transform: translateX(-50%);
+
+		@media (max-width: 600px) {
+			width: 100px;
+			height: 100px;
+			top: 70px;
+		}
 	}
 
 	.content {
@@ -160,20 +179,28 @@ const GithubStatsCard = styled.div`
 		justify-content: flex-start;
 		flex-direction: column;
 		width: 100%;
-		height: 100%;
-		padding: 20px;
+		flex: 1;
+		padding: 16px;
+		padding-top: 70px;
+
+		@media (max-width: 600px) {
+			padding-top: 60px;
+		}
 
 		h3 {
 			color: ${(props) => props.theme.colors.title};
-			margin-top: 60px;
+			font-size: 15px;
+			font-family: 'JetBrains Mono', monospace;
+			margin-bottom: 2px;
+			text-align: center;
 		}
 
 		a {
-			color: ${(props) => props.theme.colors.body};
-			margin-bottom: 20px;
-			font-size: 14px;
-			margin-top: 5px;
-			font-weight: 300;
+			color: ${(props) => props.theme.colors.branding};
+			margin-bottom: 10px;
+			font-size: 13px;
+			font-family: 'JetBrains Mono', monospace;
+			font-weight: 400;
 			text-decoration: none;
 
 			&:hover {
@@ -184,6 +211,8 @@ const GithubStatsCard = styled.div`
 		p {
 			text-align: center;
 			color: ${(props) => props.theme.colors.body};
+			font-size: 12px;
+			line-height: 1.5;
 		}
 	}
 
@@ -191,13 +220,12 @@ const GithubStatsCard = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
-		width: 90%;
-		height: 60px;
+		width: 100%;
+		height: 56px;
 		background: ${(props) => props.theme.colors.backgroundSecondary};
-		border-radius: 8px;
-		padding: 10px;
-		position: absolute;
-		bottom: 15px;
+		border-top: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundPage};
+		padding: 8px;
+		flex-shrink: 0;
 
 		.stats {
 			display: flex;
@@ -206,15 +234,18 @@ const GithubStatsCard = styled.div`
 			flex-direction: column;
 
 			p {
-				font-size: 18px;
+				font-size: 16px;
 				font-weight: 900;
 				color: ${(props) => props.theme.colors.title};
-				margin-bottom: 5px;
+				margin-bottom: 2px;
+				font-family: 'JetBrains Mono', monospace;
 			}
 
 			span {
-				font-size: 10px;
-				color: ${(props) => props.theme.colors.body};
+				font-size: 9px;
+				color: ${(props) => props.theme.colors.inactiveTitle};
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
 			}
 		}
 	}
@@ -284,7 +315,7 @@ export default function AProposDeMoi(props) {
 						<ScrollAnimation animateIn="fadeIn" animateOnce delay={200}>
 							<GithubStatsCard>
 								<div className="background" />
-								<div className="img">
+								<div className="img" style={{ position: "relative" }}>
 									<Image src="/img/DYLANE BENGONO.png" alt={language.aboutMePage.alt_dev_img} fill style={{ objectFit: "cover" }} className="image-rounded" />
 								</div>
 								<div className="content">

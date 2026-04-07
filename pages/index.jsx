@@ -14,8 +14,8 @@ export default function Index() {
 			<HomePage />
 			<ServicesOffer />
 			<AProposDeMoiPage />
-			<PortfolioPage />
 			<ExperiencePage />
+			<PortfolioPage />
 			<FooterPage />
 		</>
 	);

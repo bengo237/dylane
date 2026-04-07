@@ -45,17 +45,18 @@ import Tooltip from "@/components/Tooltip";
 import FetchData from "@/components/RepositoryList";
 const ContainerGrid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	width: 60%;
-	gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	width: 85%;
+	gap: 16px;
 	transition: all 0.3s ease;
 
-	@media (max-width: 1600px) {
-		width: 85%;
+	@media (max-width: 1200px) {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 600px) {
 		grid-template-columns: repeat(1, 1fr);
+		width: 95%;
 	}
 `;
 
@@ -65,12 +66,13 @@ const WrapperProjectCard = styled.div`
 	align-items: flex-start;
 	justify-content: space-between;
 	flex-direction: column;
-	min-height: 270px;
-	background-color: ${(props) => props.theme.colors.backgroundSecondary};
-	border-radius: 4px;
-	padding: 20px;
+	min-height: 200px;
+	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
+	border-radius: 0;
+	padding: 16px;
 	transition: all 0.3s ease;
-	border: 1px solid ${(props) => props.theme.colors.backgroundPage};
+	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundPage};
+	border-top: 2px solid ${(props) => props.theme.colors.branding}44;
 
 	.created_at {
 		color: ${(props) => props.theme.colors.inactiveTitle};
@@ -286,7 +288,7 @@ export default function Portifolio() {
 	const [stack] = useState("TODOS");
 
 	// Fetch data from my personnal GitHub account to list repositories
-	const [url, setURL] = useState(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`);
+	const [url, setURL] = useState(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=30&sort=updated`);
 	const data = FetchData(url);
 
 	const topicsIcons = {
@@ -456,7 +458,7 @@ export default function Portifolio() {
 				<TitleSection>{language.portifolioPage.title}</TitleSection>
 			</ContainerTitleSection>
 			<ContainerGrid>
-				{data ? (
+				{Array.isArray(data) && data.length > 0 ? (
 					data.map((project, index) => (
 						<ScrollAnimation animateIn="fadeIn" animateOnce key={index}>
 							<WrapperProjectCard>
@@ -513,7 +515,9 @@ export default function Portifolio() {
 							</WrapperProjectCard>
 						</ScrollAnimation>
 					))) : (
-					<p>Loading...</p>
+					<p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "13px", opacity: 0.5, gridColumn: "1/-1", textAlign: "center", padding: "40px 0" }}>
+						{data === null ? "$ error: GitHub API rate limit exceeded — try again later" : "$ loading repositories..."}
+					</p>
 				)}
 			</ContainerGrid>
 		</SectionPortifolio>
