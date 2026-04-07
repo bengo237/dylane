@@ -122,13 +122,14 @@ const GithubStatsCard = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 	width: 280px;
-	height: 400px;
+	height: auto;
+	min-height: 400px;
 	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.branding};
 	border-top: 3px solid ${(props) => props.theme.colors.branding};
 	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
 	border-radius: 0;
 	flex-direction: column;
-	overflow: hidden;
+	overflow: visible;
 	position: relative;
 
 	@media (max-width: 900px) {
@@ -150,27 +151,22 @@ const GithubStatsCard = styled.div`
 
 	.background {
 		width: 100%;
-		height: 120px;
+		height: 90px;
 		background: linear-gradient(135deg, ${(props) => props.theme.colors.branding}88, ${(props) => props.theme.colors.branding}33);
 		flex-shrink: 0;
 	}
 
 	.img {
-		width: 120px;
-		height: 120px;
+		width: 110px;
+		height: 110px;
 		border-radius: 50%;
 		border: 4px solid ${(props) => props.theme.colors.branding};
 		background-color: ${(props) => props.theme.colors.backgroundSecondary};
 		position: absolute;
-		top: 60px;
+		top: 35px;
 		left: 50%;
 		transform: translateX(-50%);
-
-		@media (max-width: 600px) {
-			width: 100px;
-			height: 100px;
-			top: 70px;
-		}
+		z-index: 1;
 	}
 
 	.content {
@@ -179,13 +175,7 @@ const GithubStatsCard = styled.div`
 		justify-content: flex-start;
 		flex-direction: column;
 		width: 100%;
-		flex: 1;
-		padding: 16px;
-		padding-top: 70px;
-
-		@media (max-width: 600px) {
-			padding-top: 60px;
-		}
+		padding: 70px 16px 16px 16px;
 
 		h3 {
 			color: ${(props) => props.theme.colors.title};
@@ -225,7 +215,7 @@ const GithubStatsCard = styled.div`
 		background: ${(props) => props.theme.colors.backgroundSecondary};
 		border-top: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundPage};
 		padding: 8px;
-		flex-shrink: 0;
+		margin-top: auto;
 
 		.stats {
 			display: flex;
