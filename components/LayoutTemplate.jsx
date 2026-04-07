@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 
 //Third part librarys
 import Link from "next/link";
-import styled from "styled-components";
-import Fade from "react-reveal/Fade";
+import styled, { keyframes } from "styled-components";
 
 //Custom components
 import SwitchThemeButton from "@/components/SwitchThemeButton";
@@ -146,6 +145,21 @@ const NavbarOption = styled.h4`
 	}
 `;
 
+const fadeInDown = keyframes`
+	from {
+		opacity: 0;
+		transform: translateY(-16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+`;
+
+const FadeInDown = styled.div`
+	animation: ${fadeInDown} ${(props) => props.duration || 200}ms ease ${(props) => props.delay || 0}ms both;
+`;
+
 const SideBarTheme = styled.aside`
 	display: flex;
 	align-items: center;
@@ -167,7 +181,7 @@ export default function LayoutTemplate({ children }) {
 	return (
 		<>
 			<HeaderContainer>
-				<Fade top delay={100} duration={200}>
+				<FadeInDown delay={100} duration={200}>
 					<Link href="#section-home" passHref>
 						<LogoContainer>
 							<LogoText>
@@ -175,40 +189,40 @@ export default function LayoutTemplate({ children }) {
 							</LogoText>
 						</LogoContainer>
 					</Link>
-				</Fade>
+				</FadeInDown>
 
 				<NavbarOptionContainer>
-					<Fade top delay={100} duration={200}>
+					<FadeInDown delay={100} duration={200}>
 						<Link href="#section-home" passHref>
 							<NavbarOption>{language.navbarMenu.labelHome}</NavbarOption>
 						</Link>
-					</Fade>
+					</FadeInDown>
 
-					{/* <Fade top delay={200} duration={200}>
+					{/* <FadeInDown delay={200} duration={200}>
 						<Link href="#section-services" passHref>
 							<NavbarOption>{language.navbarMenu.labelServices}</NavbarOption>
 						</Link>
-					</Fade> */}
+					</FadeInDown> */}
 
-					<Fade top delay={200} duration={200}>
+					<FadeInDown delay={200} duration={200}>
 						<Link href="#section-services" passHref>
 							<NavbarOption>{language.navbarMenu.labelAboutMe}</NavbarOption>
 						</Link>
-					</Fade>
-					<Fade top delay={300} duration={200}>
+					</FadeInDown>
+					<FadeInDown delay={300} duration={200}>
 						<Link href="#section-a-propos" passHref>
 							<NavbarOption>{language.navbarMenu.labelPortifolio}</NavbarOption>
 						</Link>
-					</Fade>
-					<Fade top delay={400} duration={200}>
+					</FadeInDown>
+					<FadeInDown delay={400} duration={200}>
 						<Link href="#section-experience" passHref>
 							<NavbarOption>{language.navbarMenu.labelExperience}</NavbarOption>
 						</Link>
-					</Fade>
-					<Fade top delay={500} duration={200}>
+					</FadeInDown>
+					<FadeInDown delay={500} duration={200}>
 						<LanguageSwitchButton />
 						<SwitchThemeButton />
-					</Fade>
+					</FadeInDown>
 				</NavbarOptionContainer>
 
 				<SwitchMenuContainer>

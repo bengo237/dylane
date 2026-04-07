@@ -1,4 +1,5 @@
 import "../styles/font.css";
+import "animate.css";
 import Script from "next/script";
 import GlobalStyle from "../styles/globalStyle";
 import LayoutTemplate from "../components/LayoutTemplate";

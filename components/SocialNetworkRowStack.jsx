@@ -64,61 +64,26 @@ export default function SocialNetworkRowStack() {
 	return (
 		<SocialMediaContainer>
 
-			<ButtonSocialMediaIcon href="https://github.com/bengo237" target="_blank">
+			<ButtonSocialMediaIcon href="https://github.com/bengo237" target="_blank" rel="noopener noreferrer">
 				<Github />
 			</ButtonSocialMediaIcon>
 
-			<ButtonSocialMediaIcon href="mailto:chaneldylanebengono@gmail.com" target="_blank">
+			<ButtonSocialMediaIcon href="mailto:chaneldylanebengono@gmail.com">
 				<MailSend />
 			</ButtonSocialMediaIcon>
 
-			<ButtonSocialMediaIcon href="https://wa.me/message/P4C3X3IRXVG7C1" target="_blank">
+			<ButtonSocialMediaIcon href="https://wa.me/message/P4C3X3IRXVG7C1" target="_blank" rel="noopener noreferrer">
 				<LogoWhatsapp />
 			</ButtonSocialMediaIcon>
 
-			<ButtonSocialMediaIcon href="https://www.linkedin.com/in/chanel-dylane-b-91b850194" target="_blank" data-splitbee-event="linkedin-access">
+			<ButtonSocialMediaIcon href="https://www.linkedin.com/in/chanel-dylane-b-91b850194" target="_blank" rel="noopener noreferrer" data-splitbee-event="linkedin-access">
 				<LinkedinSquare />
 			</ButtonSocialMediaIcon>
 
-			<ButtonSocialMediaIcon href="https://x.com/chaneldylaneben" target="_blank">
+			<ButtonSocialMediaIcon href="https://x.com/chaneldylaneben" target="_blank" rel="noopener noreferrer">
 				<Twitter />
 			</ButtonSocialMediaIcon>
 
 		</SocialMediaContainer>
 	);
 }
-
-/*
-
-Container com as cores das techs
-
-<SocialMediaContainer>
-			<ButtonSocialMediaIcon onClick={redirectToFacebook}>
-				<Facebook style={{ color: "#3C5A99" }} />
-			</ButtonSocialMediaIcon>
-
-			<ButtonSocialMediaIcon onClick={redirectToGithub}>
-				<Github style={{ color: "#818181" }} />
-			</ButtonSocialMediaIcon>
-
-			<ButtonSocialMediaIcon onClick={redirectToEmail}>
-				<MailSend style={{ color: "#DB4437" }} />
-			</ButtonSocialMediaIcon>
-
-			<ButtonSocialMediaIcon onClick={redirectToWhatsapp}>
-				<LogoWhatsapp style={{ color: "#25d366" }} />
-			</ButtonSocialMediaIcon>
-
-			<ButtonSocialMediaIcon onClick={redirectToTelegram}>
-				<Telegram style={{ color: "#0088cc" }} />
-			</ButtonSocialMediaIcon>
-
-			<ButtonSocialMediaIcon onClick={redirectToInstagram}>
-				<Instagram style={{ color: "#c13584" }} />
-			</ButtonSocialMediaIcon>
-
-			<ButtonSocialMediaIcon onClick={redirectToLinkedin}>
-				<LinkedinSquare style={{ color: "#0077b5" }} />
-			</ButtonSocialMediaIcon>
-		</SocialMediaContainer>
-*/

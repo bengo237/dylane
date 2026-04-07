@@ -43,8 +43,6 @@ import { Arduino } from "@styled-icons/simple-icons";
 //Custom components
 import Tooltip from "@/components/Tooltip";
 import FetchData from "@/components/RepositoryList";
-import { D } from "styled-icons/crypto";
-
 const ContainerGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -233,9 +231,9 @@ function formatDate(dateString) {
 
 
 const Chip = styled.span`
-	color: ${(props) => (props.active == true ? props.theme.colors.backgroundSecondary : props.theme.colors.inactiveTitle)};
-	background-color: ${(props) => (props.active == true ? props.theme.colors.branding : props.theme.colors.backgroundSecondary)};
-	border: 1px solid ${(props) => (props.active == true ? props.theme.colors.branding : props.theme.colors.inactiveTitle)};
+	color: ${(props) => (props.active ? props.theme.colors.backgroundSecondary : props.theme.colors.inactiveTitle)};
+	background-color: ${(props) => (props.active ? props.theme.colors.branding : props.theme.colors.backgroundSecondary)};
+	border: 1px solid ${(props) => (props.active ? props.theme.colors.branding : props.theme.colors.inactiveTitle)};
 	padding: 2px 7px 3px 7px;
 	margin: 3px;
 	border-radius: 4px;
@@ -285,11 +283,10 @@ const SectionPortifolio = styled.section`
 
 export default function Portifolio() {
 	const { language } = useContext(SettingsContext);
-	const [view, setView] = useState("grid");
-	const [stack, setStack] = useState("TODOS");
+	const [stack] = useState("TODOS");
 
 	// Fetch data from my personnal GitHub account to list repositories
-	const [url, setURL] = useState('https://api.github.com/users/Bengo237/repos');
+	const [url, setURL] = useState(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`);
 	const data = FetchData(url);
 
 	const topicsIcons = {
@@ -414,16 +411,6 @@ export default function Portifolio() {
 			"icon": <Arduino />
 		}
 	}
-
-	function handleFilter(id) {
-		setStack(id);
-	}
-
-	function handleView(event) {
-		setView(event.target.id);
-	}
-
-	const array_projects = stack == "TODOS";
 
 	return (
 		<SectionPortifolio id="section-portifolio">

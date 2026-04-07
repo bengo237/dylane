@@ -61,7 +61,8 @@
 			"labelInstitution": "Institution",
 			"labelProfessionalCourse": "Cours professionnels",
 			"labelMasterDegree": "Master",
-			"labelExtensionCourse": "Cours d'extension"
+			"labelExtensionCourse": "Cours d'extension",
+			"labelDegreeTitle": "Ingénieur Master, Cybersécurité & Investigation Numérique"
 		}
 	},
 	"footer": {

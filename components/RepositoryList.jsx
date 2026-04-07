@@ -7,7 +7,7 @@ const FetchData = (url) => {
     fetch(url)
       .then(response => response.json())
       .then(jsonData => setData(jsonData))
-      .catch(error => console.error(error));
+      .catch(() => setData(null));
   }, [url]);
 
   return data;

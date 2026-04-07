@@ -96,7 +96,7 @@ export default function TimelinePortifolio(props) {
 					</BoldText>
 					<BoldText>
 						{language.experiencePage.timeline.labelTitle}:{""}
-						<span> {language.id == "ptbr" ? "Cybersecurité & Investigation Numérique" : "Master of Engineering, Cybersecurity and Digital Investigation "}</span>
+						<span> {language.experiencePage.timeline.labelDegreeTitle}</span>
 					</BoldText>
 				</TimelineContent>
 			</VerticalTimelineElement>

@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import ScrollAnimation from "react-animate-on-scroll";
 
-//Contexto
-
-//Ícones
 import { Amazonaws } from "@styled-icons/simple-icons/Amazonaws";
 import { Visualstudiocode } from "@styled-icons/simple-icons/Visualstudiocode";
 import { Mongodb } from "@styled-icons/simple-icons/Mongodb";
@@ -25,10 +22,10 @@ import { Ios } from "@styled-icons/simple-icons/Ios";
 import { Figma } from "@styled-icons/boxicons-logos/Figma";
 import { Adobephotoshop } from "@styled-icons/simple-icons/Adobephotoshop";
 import { Docker } from "@styled-icons/boxicons-logos/Docker";
-import { Wordpress } from "@styled-icons/boxicons-logos/Wordpress"
-import { Kalilinux } from "@styled-icons/simple-icons/Kalilinux"
-import { Nextcloud } from "@styled-icons/simple-icons/Nextcloud"
-import { Nginx } from "@styled-icons/simple-icons/Nginx"
+import { Wordpress } from "@styled-icons/boxicons-logos/Wordpress";
+import { Kalilinux } from "@styled-icons/simple-icons/Kalilinux";
+import { Nextcloud } from "@styled-icons/simple-icons/Nextcloud";
+import { Nginx } from "@styled-icons/simple-icons/Nginx";
 
 const TechGrid = styled.footer`
 	padding-top: 30px;
@@ -49,7 +46,6 @@ const Tech = styled.div`
 	width: 100%;
 	min-width: 100px;
 	height: 44px;
-	//background-color: ${(props) => props.theme.colors.backgroundSecondary};
 	padding: 15px;
 	border-radius: 4px;
 
@@ -77,141 +73,41 @@ export const TitleSection = styled.h2`
 	}
 `;
 
-export default function TechsGrid(props) {
+const icons = [
+	<Docker key="docker" />,
+	<Wordpress key="wordpress" />,
+	<Kalilinux key="kalilinux" />,
+	<Nextcloud key="nextcloud" />,
+	<Nginx key="nginx" />,
+	<Amazonaws key="amazonaws" />,
+	<Visualstudiocode key="vscode" />,
+	<Mongodb key="mongodb" />,
+	<Postgresql key="postgresql" />,
+	<Sqlite key="sqlite" />,
+	<Javascript key="javascript" />,
+	<Java key="java" />,
+	<Python key="python" />,
+	<Nodejs key="nodejs" />,
+	<Html5 key="html5" />,
+	<Git key="git" />,
+	<Oracle key="oracle" />,
+	<Mysql key="mysql" />,
+	<Linux key="linux" />,
+	<Windows key="windows" />,
+	<Android key="android" />,
+	<Ios key="ios" />,
+	<Figma key="figma" />,
+	<Adobephotoshop key="photoshop" />,
+];
+
+export default function TechsGrid() {
 	return (
 		<TechGrid>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Docker />
-				</Tech>
-			</ScrollAnimation>	
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Wordpress />
-				</Tech>
-			</ScrollAnimation>	
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Kalilinux />
-				</Tech>
-			</ScrollAnimation>	
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Nextcloud />
-				</Tech>
-			</ScrollAnimation>	
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Nginx />
-				</Tech>
-			</ScrollAnimation>	
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Amazonaws />
-				</Tech>
-			</ScrollAnimation>	
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Visualstudiocode />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Mongodb />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Postgresql />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Sqlite />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Javascript />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Java />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Python />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Nodejs />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Html5 />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Git />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Oracle />
-				</Tech>
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Mysql />
-				</Tech>
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Linux />
-				</Tech>
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Windows />
-				</Tech>
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Android />
-				</Tech>
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Ios />
-				</Tech>
-			</ScrollAnimation>
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Figma />
-				</Tech>
-			</ScrollAnimation>
-
-			<ScrollAnimation animateIn="fadeIn" animateOnce>
-				<Tech>
-					<Adobephotoshop />
-				</Tech>
-			</ScrollAnimation>
+			{icons.map((icon, index) => (
+				<ScrollAnimation key={index} animateIn="fadeIn" animateOnce>
+					<Tech>{icon}</Tech>
+				</ScrollAnimation>
+			))}
 		</TechGrid>
 	);
 }
