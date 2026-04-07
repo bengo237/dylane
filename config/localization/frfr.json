@@ -10,7 +10,7 @@
 	"landingPage": {
 		"apresentationText": "Bonjour, je suis",
 		"typeText": "Dylane Bengono",
-		"resumeText": "Ingénieur Polytechnicien en Cybersécurité & Investigation Numérique. RSSI chez BVMAC · Security Engineer chez adorsys. Certifié ISO/IEC 27001, CCNP, NSE4, CCT, CPTA v2. Hackeur Éthique · Joueur CTF · Chercheur OSINT.",
+		"resumeText": "Ingénieur Polytechnicien en Cybersécurité & Investigation Numérique. RSSI chez BVMAC · Certifié ISO/IEC 27001, CCNP, NSE4, CCT, CPTA v2. Hackeur Éthique · Joueur CTF · Chercheur OSINT.",
 		"buttonText": "A propos de moi"
 	},
 	"servicesOffer": {
@@ -40,7 +40,7 @@
 	},
 	"aboutMePage": {
 		"title": "WHOAMI",
-		"paragraph_one": "Ingénieur Polytechnicien en Cybersécurité et Investigation Numérique, Hackeur Éthique, certifié ISO/IEC 27001 Associate, CCNP, CCT, CSCU, CPTA v2 et NSE4 Fortinet. Actuellement RSSI chez BVMAC et Security Engineer chez adorsys GmbH & Co. KG, avec une expertise en tests d'intrusion, réponse aux incidents, recherche OSINT et sécurité offensive & défensive.",
+		"paragraph_one": "Ingénieur Polytechnicien en Cybersécurité et Investigation Numérique, Hackeur Éthique, certifié ISO/IEC 27001 Associate, CCNP, CCT, CSCU, CPTA v2 et NSE4 Fortinet. Actuellement RSSI chez BVMAC je dispose d'une expertise en tests d'intrusion, réponse aux incidents, recherche OSINT et sécurité offensive & défensive.",
 		"paragraph_two": "Expérimenté dans la conception et le déploiement de Politiques de Sécurité des Systèmes d'Information (PSSI), solutions SIEM/SOC (Wazuh, Splunk, IBM QRadar, Snort 3), Plans de Continuité et de Reprise d'Activité (PCA/PRA), et référentiels de sécurité (ISO 27001/27002/27005, NIST CSF, EBIOS RM, RGPD). Maîtrise de Terraform, Helm, ArgoCD, Tekton CI/CD, Docker, Kubernetes et environnements cloud (AWS, GCP, Azure).",
 		"paragraph_three": "Lauréat du Programme d'Excellence o'100 THE OKWELEANS (2023) et Hall of Fame au Cyber Challenge EC-COUNCIL (2022). Joueur CTF passionné et lauréat des Olympiades des Experts en Cybersécurité 2021. Engagé dans l'apprentissage continu et l'avancement de la cybersécurité.",
 		"github_card": {

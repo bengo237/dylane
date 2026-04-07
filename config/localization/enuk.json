@@ -40,7 +40,7 @@
     },
     "aboutMePage": {
         "title": "WHOAMI",
-        "paragraph_one": "Polytechnic Engineer in Cybersecurity and Digital Forensics, Ethical Hacker, certified ISO/IEC 27001 Associate, CCNP, CCT, CSCU, CPTA v2, and NSE4 Fortinet. Currently serving as CISO (RSSI) at BVMAC and Security Engineer at adorsys GmbH & Co. KG, with expertise in intrusion testing, incident response, OSINT research, and offensive & defensive security.",
+        "paragraph_one": "Polytechnic Engineer in Cybersecurity and Digital Forensics, Ethical Hacker, certified ISO/IEC 27001 Associate, CCNP, CCT, CSCU, CPTA v2, and NSE4 Fortinet. Currently serving as CISO (RSSI) at BVMAC, with expertise in intrusion testing, incident response, OSINT research, and offensive & defensive security.",
         "paragraph_two": "Experienced in designing and deploying Information System Security Policies (ISSP), SIEM/SOC solutions (Wazuh, Splunk, IBM QRadar, Snort 3), Business Continuity Plans (BCP/DRP), and security frameworks (ISO 27001/27002/27005, NIST CSF, EBIOS RM, RGPD). Proficient in Terraform, Helm, ArgoCD, Tekton CI/CD, Docker, Kubernetes, and cloud environments (AWS, GCP, Azure).",
         "paragraph_three": "Laureate of the o'100 OKWELEANS Excellence Program (2023) and Hall of Fame at EC-COUNCIL Cyber Challenge (2022). Passionate CTF player and winner of the 2021 Cybersecurity Experts Olympiad. Committed to continuous learning and advancing cybersecurity.",
         "github_card": {
