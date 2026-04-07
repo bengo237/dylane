@@ -101,7 +101,7 @@ const SectionServices = styled.section`
 	padding-top: 60px;
 `;
 
-export default function _ServicesOffer() {
+export default function ServicesOffer() {
 	const { language } = useContext(SettingsContext);
 
 	return (
