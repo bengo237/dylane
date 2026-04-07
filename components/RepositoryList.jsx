@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 const FetchData = (url) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(undefined);
 
   useEffect(() => {
-    fetch(url)
+    const headers = {};
+    const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+
+    fetch(url, { headers })
       .then(response => response.json())
-      .then(jsonData => setData(jsonData))
-      .catch(error => console.error(error));
+      .then(jsonData => setData(Array.isArray(jsonData) ? jsonData : null))
+      .catch(() => setData(null));
   }, [url]);
 
   return data;

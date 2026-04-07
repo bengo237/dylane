@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 
 //Third part librarys
 import Link from "next/link";
-import styled from "styled-components";
-import Fade from "react-reveal/Fade";
+import styled, { keyframes } from "styled-components";
 
 //Custom components
 import SwitchThemeButton from "@/components/SwitchThemeButton";
@@ -19,6 +18,8 @@ const Main = styled.main`
 	flex-direction: column;
 	width: 100%;
 	background-color: ${(props) => props.theme.colors.backgroundPage};
+	padding-top: 64px;
+	padding-bottom: 24px;
 `;
 
 const ContainerPage = styled.div`
@@ -32,57 +33,74 @@ const ContainerPage = styled.div`
 const HeaderContainer = styled.header`
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
 	height: 64px;
 	position: fixed;
 	top: 0;
-	z-index: 3;
-
-	//Deixar header com efeito de Glassmorphin
-	//background-color: rgba(0, 0, 0, 0.1) !important;
+	z-index: 100;
 	backdrop-filter: saturate(180%) blur(30px);
 	-webkit-backdrop-filter: saturate(180%) blur(30px);
+	background-color: ${(props) =>
+		props.theme.name === "dark"
+			? "rgba(10, 12, 16, 0.92)"
+			: "rgba(240, 242, 245, 0.92)"};
+	border-bottom: 1px solid ${(props) => props.theme.colors.branding}44;
+	padding: 0 32px;
 
 	@media (max-width: 600px) {
-		justify-content: space-between;
+		padding: 0 16px;
 	}
 `;
 
 const LogoContainer = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	gap: 8px;
+	cursor: pointer;
 
 	&:hover {
-		cursor: pointer;
-		opacity: 0.8;
+		opacity: 0.85;
 	}
+`;
 
-	@media (max-width: 600px) {
-		margin-left: 30px;
-	}
+const LogoDot = styled.span`
+	color: ${(props) => props.theme.colors.branding};
+	font-size: 10px;
+`;
+
+const cursorBlink = keyframes`
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0; }
 `;
 
 const LogoText = styled.h3`
 	color: ${(props) => props.theme.colors.title};
-	font-weight: 700;
-	font-size: 30px;
+	font-weight: 600;
+	font-size: 15px;
+	font-family: 'JetBrains Mono', monospace;
+	letter-spacing: 0.04em;
+	display: flex;
+	align-items: center;
+	gap: 0;
 
 	@media (max-width: 900px) {
-		font-size: ${(props) => props.theme.fontSizes.xl};
+		font-size: 13px;
 	}
 `;
 
-const CaracteresLogo = styled.span`
+const LogoCursor = styled.span`
 	color: ${(props) => props.theme.colors.branding};
-	font-weight: 700;
+	font-weight: 300;
+	animation: ${cursorBlink} 1.2s step-end infinite;
+	margin-left: 1px;
 `;
 
 const NavbarOptionContainer = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 4px;
 
 	@media (max-width: 600px) {
 		display: none;
@@ -93,57 +111,79 @@ const SwitchMenuContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-right: 20px;
 
 	@media (min-width: 601px) {
 		display: none;
 	}
 `;
 
+const NavPrefix = styled.span`
+	color: ${(props) => props.theme.colors.branding};
+	font-size: 10px;
+	opacity: 0.7;
+	margin-right: 2px;
+	font-family: 'JetBrains Mono', monospace;
+`;
+
 const NavbarOption = styled.h4`
-	color: ${(props) => props.theme.colors.title};
-	font-weight: 800;
-	margin-left: 5px;
-	margin-right: 5px;
+	color: ${(props) => props.theme.colors.inactiveTitle};
+	font-weight: 500;
+	font-size: 11px;
+	font-family: 'JetBrains Mono', monospace;
+	letter-spacing: 0.06em;
+	margin: 0 2px;
 	text-decoration: none;
-	border-bottom: 4px solid transparent;
-	transition: all 0.3s ease;
+	text-transform: uppercase;
+	transition: all 0.2s ease;
 	position: relative;
-
-	&::before {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 2px;
-		background-color: ${(props) => props.theme.colors.branding};
-		transform-origin: bottom right;
-		transform: scaleX(0);
-		transition: transform 0.5s ease;
-	}
-
-	&:hover::before {
-		transform-origin: bottom left;
-		transform: scaleX(1);
-	}
+	padding: 6px 10px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	display: flex;
+	align-items: center;
 
 	&:hover {
 		cursor: pointer;
-		color: ${(props) => props.theme.colors.branding};
-	}
-
-	@media (max-width: 1400px) {
-		font-size: ${(props) => props.theme.fontSizes.md};
+		color: ${(props) => props.theme.colors.title};
+		border-color: ${(props) => props.theme.colors.branding}66;
+		background-color: ${(props) => props.theme.colors.branding}11;
 	}
 
 	@media (max-width: 1200px) {
-		font-size: ${(props) => props.theme.fontSizes.sm};
+		font-size: 10px;
+		padding: 5px 8px;
 	}
 
 	@media (max-width: 900px) {
-		font-size: ${(props) => props.theme.fontSizes.xs};
+		font-size: 9px;
+		padding: 4px 6px;
 	}
+`;
+
+const NavControlsGroup = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: 12px;
+	padding-left: 12px;
+	border-left: 1px solid ${(props) => props.theme.colors.branding}33;
+`;
+
+const fadeInDown = keyframes`
+	from {
+		opacity: 0;
+		transform: translateY(-16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+`;
+
+const FadeInDown = styled.div`
+	animation: ${fadeInDown} ${(props) => props.$duration || 200}ms ease ${(props) => props.$delay || 0}ms both;
+	display: flex;
+	align-items: center;
 `;
 
 const SideBarTheme = styled.aside`
@@ -161,54 +201,102 @@ const SideBarTheme = styled.aside`
 	}
 `;
 
+// Status Bar (bottom, VS Code style)
+const StatusBar = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	height: 24px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	background-color: ${(props) => props.theme.colors.branding};
+	padding: 0 16px;
+	gap: 16px;
+	overflow: hidden;
+`;
+
+const StatusBarItem = styled.span`
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 11px;
+	font-weight: 500;
+	color: ${(props) =>
+		props.theme.name === "dark" ? "rgba(10, 12, 16, 0.92)" : "rgba(255,255,255,0.95)"};
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+
+	&::before {
+		content: attr(data-sep);
+		opacity: 0.5;
+		margin-right: 4px;
+	}
+`;
+
+const StatusBarDot = styled.span`
+	font-size: 9px;
+`;
+
 export default function LayoutTemplate({ children }) {
 	const { language } = useContext(SettingsContext);
 
 	return (
 		<>
 			<HeaderContainer>
-				<Fade top delay={100} duration={200}>
+				<FadeInDown $delay={100} $duration={200}>
 					<Link href="#section-home" passHref>
 						<LogoContainer>
+							<LogoDot>●</LogoDot>
 							<LogoText>
-								<CaracteresLogo>&lt;</CaracteresLogo>Bengo237 <CaracteresLogo>/&gt;</CaracteresLogo>
+								bengo237<LogoCursor>_</LogoCursor>
 							</LogoText>
 						</LogoContainer>
 					</Link>
-				</Fade>
+				</FadeInDown>
 
 				<NavbarOptionContainer>
-					<Fade top delay={100} duration={200}>
+					<FadeInDown $delay={100} $duration={200}>
 						<Link href="#section-home" passHref>
-							<NavbarOption>{language.navbarMenu.labelHome}</NavbarOption>
+							<NavbarOption>
+								<NavPrefix>[01]</NavPrefix>{language.navbarMenu.labelHome}
+							</NavbarOption>
 						</Link>
-					</Fade>
+					</FadeInDown>
 
-					{/* <Fade top delay={200} duration={200}>
+					<FadeInDown $delay={200} $duration={200}>
 						<Link href="#section-services" passHref>
-							<NavbarOption>{language.navbarMenu.labelServices}</NavbarOption>
+							<NavbarOption>
+								<NavPrefix>[02]</NavPrefix>{language.navbarMenu.labelAboutMe}
+							</NavbarOption>
 						</Link>
-					</Fade> */}
+					</FadeInDown>
 
-					<Fade top delay={200} duration={200}>
-						<Link href="#section-services" passHref>
-							<NavbarOption>{language.navbarMenu.labelAboutMe}</NavbarOption>
-						</Link>
-					</Fade>
-					<Fade top delay={300} duration={200}>
+					<FadeInDown $delay={300} $duration={200}>
 						<Link href="#section-a-propos" passHref>
-							<NavbarOption>{language.navbarMenu.labelPortifolio}</NavbarOption>
+							<NavbarOption>
+								<NavPrefix>[03]</NavPrefix>{language.navbarMenu.labelPortifolio}
+							</NavbarOption>
 						</Link>
-					</Fade>
-					<Fade top delay={400} duration={200}>
+					</FadeInDown>
+
+					<FadeInDown $delay={400} $duration={200}>
 						<Link href="#section-experience" passHref>
-							<NavbarOption>{language.navbarMenu.labelExperience}</NavbarOption>
+							<NavbarOption>
+								<NavPrefix>[04]</NavPrefix>{language.navbarMenu.labelExperience}
+							</NavbarOption>
 						</Link>
-					</Fade>
-					<Fade top delay={500} duration={200}>
-						<LanguageSwitchButton />
-						<SwitchThemeButton />
-					</Fade>
+					</FadeInDown>
+
+					<FadeInDown $delay={500} $duration={200}>
+						<NavControlsGroup>
+							<LanguageSwitchButton />
+							<SwitchThemeButton />
+						</NavControlsGroup>
+					</FadeInDown>
 				</NavbarOptionContainer>
 
 				<SwitchMenuContainer>
@@ -220,6 +308,20 @@ export default function LayoutTemplate({ children }) {
 			<Main>
 				<ContainerPage>{children}</ContainerPage>
 			</Main>
+
+			<StatusBar>
+				<StatusBarItem>
+					<StatusBarDot>⬡</StatusBarDot>
+					root@soc-dashboard ~
+				</StatusBarItem>
+				<StatusBarItem data-sep="|">
+					<StatusBarDot>●</StatusBarDot>
+					SECURE
+				</StatusBarItem>
+				<StatusBarItem data-sep="|">RSSI@BVMAC</StatusBarItem>
+				<StatusBarItem data-sep="|">Security Engineer@adorsys</StatusBarItem>
+				<StatusBarItem data-sep="|">2024</StatusBarItem>
+			</StatusBar>
 		</>
 	);
 }

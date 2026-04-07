@@ -1,20 +1,27 @@
-from node:lts-alpine3.17
+FROM node:22-alpine
+
+# Apply latest security patches
+RUN apk update && apk upgrade --no-cache
 
 WORKDIR /app
 
-#Install packages
+# Install packages
 COPY package.json .
 
 RUN npm install --legacy-peer-deps
 
-#Copy websites files
+# Copy website files
 COPY . .
 
-#build the project
+# Build the project
 RUN npm run build
 
-#Expose npm default port
+# Run as non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+# Expose Next.js default port
 EXPOSE 3000
 
-#Start the server
+# Start the server
 CMD ["npm", "run", "start"]

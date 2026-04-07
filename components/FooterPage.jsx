@@ -235,22 +235,20 @@ export default function FooterPage(props) {
 	}, []);
 
 	async function getLastCommit() {
-		const response = await fetch("https://api.github.com/repos/bengo237/dylane/commits");
+		const response = await fetch(`https://api.github.com/repos/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/dylane/commits`);
 		const json = await response.json();
 		try {
 			setCommit(json[0].sha.slice(0, 6));
-		} catch (error) {
-			console.error(error);
+		} catch (_error) {
 			setCommit("Error Loading...");
 		}
 	}
 
 
 	const goToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
+		if (typeof window !== "undefined") {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		}
 	};
 
 	return (
@@ -281,7 +279,7 @@ export default function FooterPage(props) {
 					<SectionFooterMenu>
 						<FooterTextTitle>{language.footer.labelHost.title}</FooterTextTitle>
 
-						<FooterTextExternalLink href="https://t.me/kmerbooking" target="_blank">
+						<FooterTextExternalLink href="https://t.me/kmerbooking" target="_blank" rel="noopener noreferrer">
 						Kmer Booking Free Books
 						</FooterTextExternalLink>
 					</SectionFooterMenu>
@@ -290,7 +288,7 @@ export default function FooterPage(props) {
 				<ScrollAnimation animateIn="fadeIn" animateOnce delay={400}>
 					<SectionFooterMenu>
 						<FooterTextTitle>{language.footer.labelSourceCode.title}</FooterTextTitle>
-						<FooterTextExternalLink href="https://github.com/Bengo237/Dylane" target="_blank">
+						<FooterTextExternalLink href="https://github.com/Bengo237/Dylane" target="_blank" rel="noopener noreferrer">
 							Github
 						</FooterTextExternalLink>
 					</SectionFooterMenu>
@@ -300,19 +298,19 @@ export default function FooterPage(props) {
 					<SectionFooterMenu>
 						<FooterTextTitle>{language.footer.labelTechs.title}</FooterTextTitle>
 
-						<FooterTextExternalLink href="https://www.keycloak.org" target="_blank">
+						<FooterTextExternalLink href="https://www.keycloak.org" target="_blank" rel="noopener noreferrer">
 							Keycloak
 						</FooterTextExternalLink>
 
-						<FooterTextExternalLink href="https://www.docker.com" target="_blank">
+						<FooterTextExternalLink href="https://www.docker.com" target="_blank" rel="noopener noreferrer">
 							Docker
 						</FooterTextExternalLink>
 
-						<FooterTextExternalLink href="https://kubernetes.io" target="_blank">
+						<FooterTextExternalLink href="https://kubernetes.io" target="_blank" rel="noopener noreferrer">
 							Kubernetes
 						</FooterTextExternalLink>
 
-						<FooterTextExternalLink href="https://aws.amazon.com/" target="_blank">
+						<FooterTextExternalLink href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
 							Aws
 						</FooterTextExternalLink>
 					</SectionFooterMenu>

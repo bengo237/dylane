@@ -7,65 +7,78 @@ import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { ShieldKeyhole } from "@styled-icons/fluentui-system-filled/ShieldKeyhole";
 import { Password } from "@styled-icons/fluentui-system-filled/Password";
 import { CodeBlock } from "@styled-icons/boxicons-regular/CodeBlock";
+import { ClipboardData } from "@styled-icons/bootstrap/ClipboardData";
 
 //Contexto
 import { SettingsContext } from "@/context/SettingsContext";
 
-const CardService = styled.div`
+// Terminal window dots
+const WindowDots = styled.div`
 	display: flex;
 	align-items: center;
+	gap: 6px;
+`;
+
+const Dot = styled.span`
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: ${(props) => props.$color};
+	display: inline-block;
+	opacity: 0.85;
+`;
+
+const CardHeader = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: calc(100% + 40px);
+	margin-left: -20px;
+	margin-top: -24px;
+	margin-bottom: 16px;
+	padding: 8px 14px;
+	background-color: ${(props) =>
+		props.theme.name === "dark"
+			? "rgba(0,0,0,0.3)"
+			: "rgba(0,0,0,0.07)"};
+	border-bottom: 1px solid ${(props) =>
+		props.theme.colors.border || props.theme.colors.backgroundSecondary};
+`;
+
+const CardHeaderTitle = styled.span`
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 11px;
+	font-weight: 600;
+	color: ${(props) => props.theme.colors.branding};
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+`;
+
+const CardService = styled.div`
+	display: flex;
+	align-items: flex-start;
 	justify-content: flex-start;
 	flex-direction: column;
 	width: 275px;
-	padding: 20px;
+	padding: 24px 20px 20px 20px;
 	transition: all 0.3s ease;
-	border: 3px solid transparent;
+	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
+	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundSecondary};
+	border-top: 2px solid ${(props) => props.theme.colors.branding};
+	border-radius: 2px;
+	overflow: hidden;
 
-	//Espelhar elemento
-	//-webkit-box-reflect: below px linear-gradient(transparent, transparent, #0004);
-
-	/* 
-	transform-origin: center;
-	transform: perspective(800px) rotateY(25deg);
-	transition: 0.5s;
-
-	&:hover img {
-		opacity: 0.3;
-	}
 	&:hover {
-		transform: perspective(800px) rotateY(0deg);
-		opacity: 1;
-	} */
+		transform: translateY(-3px);
+		box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+		border-top-color: ${(props) => props.theme.colors.branding};
+	}
 
 	svg {
 		color: ${(props) => props.theme.colors.branding};
-		width: 70px;
-		height: 70px;
-		margin-bottom: 10px;
-	}
-
-	h3 {
-		color: ${(props) => props.theme.colors.branding};
-		font-size: 20px;
-		font-weight: 900;
-		margin-top: 5px;
-		margin-bottom: 20px;
-
-		@media (max-width: 900px) {
-			font-size: 18px;
-		}
-	}
-
-	p {
-		font-size: 16px;
-		color: ${(props) => props.theme.colors.body};
-		font-weight: 400;
-		text-align: center;
-		word-wrap: break-word;
-
-		@media (max-width: 900px) {
-			font-size: 14px;
-		}
+		width: 28px;
+		height: 28px;
+		margin-bottom: 12px;
 	}
 
 	@media (max-width: 425px) {
@@ -73,21 +86,59 @@ const CardService = styled.div`
 	}
 `;
 
-const ContainerGrid = styled.div`
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	transition: all 0.3s ease;
-	gap: 20px;
-	justify-items: center;
+const TerminalBody = styled.div`
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	width: 100%;
+`;
 
-	@media (max-width: 1200px) {
-		grid-template-columns: repeat(2, 1fr);
-		width: 85%;
+const TerminalPromptLine = styled.div`
+	color: ${(props) => props.theme.colors.branding};
+	margin-bottom: 2px;
+	&::before {
+		content: "$ ";
+		font-weight: 700;
+	}
+`;
+
+const TerminalOutputLine = styled.div`
+	color: ${(props) => props.theme.colors.body};
+	line-height: 1.6;
+	padding-left: 4px;
+	font-size: 13px;
+	font-family: 'Inter', sans-serif;
+
+	&::before {
+		content: "> ";
+		font-family: 'JetBrains Mono', monospace;
+		color: ${(props) => props.theme.colors.inactiveTitle || props.theme.colors.body};
+		opacity: 0.55;
+		font-size: 12px;
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 900px) {
+		font-size: 12px;
+	}
+`;
+
+const ContainerGrid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	transition: all 0.3s ease;
+	gap: 16px;
+	width: 90%;
+
+	@media (max-width: 1400px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: repeat(2, 1fr);
+		width: 95%;
+	}
+
+	@media (max-width: 500px) {
 		grid-template-columns: repeat(1, 1fr);
-		//margin-top: 60px;
 		width: 100%;
 	}
 `;
@@ -95,47 +146,77 @@ const ContainerGrid = styled.div`
 const SectionServices = styled.section`
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	flex-direction: column;
 	width: 100%;
 	padding-top: 60px;
 `;
 
-export default function _ServicesOffer() {
+export default function ServicesOffer() {
 	const { language } = useContext(SettingsContext);
+
+	const services = [
+		{
+			icon: <MagnifyingGlass />,
+			key: "forensique",
+			label: "FORENSICS",
+			command: "tail -f incident.log",
+		},
+		{
+			icon: <ClipboardData />,
+			key: "grc",
+			label: "GRC / RSSI",
+			command: "sudo cat policy.conf",
+		},
+		{
+			icon: <ShieldKeyhole />,
+			key: "devsecops",
+			label: "DEVSECOPS",
+			command: "kubectl get pods --all",
+		},
+		{
+			icon: <Password />,
+			key: "pentesting",
+			label: "PENTEST",
+			command: "nmap -sV --script vuln",
+		},
+		{
+			icon: <CodeBlock />,
+			key: "developpement",
+			label: "DEV",
+			command: "git log --oneline -5",
+		},
+	];
 
 	return (
 		<SectionServices id="section-services">
 			<ContainerGrid>
-				<ScrollAnimation animateIn="fadeIn" animateOnce delay={200}>
-					<CardService>
-						<MagnifyingGlass />
-						<h3>{language.servicesOffer.cards.forensique.title}</h3>
-						<p>{language.servicesOffer.cards.forensique.contentText}</p>
-					</CardService>
-				</ScrollAnimation>
-
-				<ScrollAnimation animateIn="fadeIn" animateOnce delay={400}>
-					<CardService>
-						<ShieldKeyhole />
-						<h3>{language.servicesOffer.cards.devsecops.title}</h3>
-						<p>{language.servicesOffer.cards.devsecops.contentText}</p>
-					</CardService>
-				</ScrollAnimation>
-				<ScrollAnimation animateIn="fadeIn" animateOnce delay={600}>
-					<CardService>
-						<Password />
-						<h3>{language.servicesOffer.cards.pentesting.title}</h3>
-						<p>{language.servicesOffer.cards.pentesting.contentText}</p>
-					</CardService>
-				</ScrollAnimation>
-				<ScrollAnimation animateIn="fadeIn" animateOnce delay={800}>
-					<CardService>
-						<CodeBlock />
-						<h3>{language.servicesOffer.cards.developpement.title}</h3>
-						<p>{language.servicesOffer.cards.developpement.contentText}</p>
-					</CardService>
-				</ScrollAnimation>
+				{services.map((service, i) => (
+					<ScrollAnimation
+						key={service.key}
+						animateIn="fadeIn"
+						animateOnce
+						delay={(i + 1) * 200}
+					>
+						<CardService>
+							<CardHeader>
+								<WindowDots>
+									<Dot $color="#ff5f56" />
+									<Dot $color="#ffbd2e" />
+									<Dot $color="#27c93f" />
+								</WindowDots>
+								<CardHeaderTitle>[ {service.label} ]</CardHeaderTitle>
+							</CardHeader>
+							{service.icon}
+							<TerminalBody>
+								<TerminalPromptLine>{service.command}</TerminalPromptLine>
+								<TerminalOutputLine>
+									{language.servicesOffer.cards[service.key].contentText}
+								</TerminalOutputLine>
+							</TerminalBody>
+						</CardService>
+					</ScrollAnimation>
+				))}
 			</ContainerGrid>
 		</SectionServices>
 	);

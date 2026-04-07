@@ -121,17 +121,28 @@ const GithubStatsCard = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	width: 300px;
-	height: 420px;
-	border: 2px solid ${(props) => props.theme.colors.branding};
-	background-color: ${(props) => props.theme.colors.backgroundPage};
-	border-radius: 8px;
+	width: 280px;
+	height: auto;
+	min-height: 400px;
+	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.branding};
+	border-top: 3px solid ${(props) => props.theme.colors.branding};
+	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
+	border-radius: 0;
 	flex-direction: column;
-	overflow: hidden;
+	overflow: visible;
 	position: relative;
+
+	@media (max-width: 900px) {
+		width: 100%;
+		max-width: 380px;
+		height: auto;
+		min-height: 380px;
+	}
 
 	@media (max-width: 601px) {
 		width: 100%;
+		max-width: 100%;
+		min-height: 340px;
 	}
 
 	.image-rounded {
@@ -140,18 +151,22 @@ const GithubStatsCard = styled.div`
 
 	.background {
 		width: 100%;
-		height: 150px;
-		background-color: ${(props) => props.theme.colors.branding};
+		height: 90px;
+		background: linear-gradient(135deg, ${(props) => props.theme.colors.branding}88, ${(props) => props.theme.colors.branding}33);
+		flex-shrink: 0;
 	}
 
 	.img {
-		width: 140px;
-		height: 140px;
+		width: 110px;
+		height: 110px;
 		border-radius: 50%;
-		border: 5px solid ${(props) => props.theme.colors.branding};
+		border: 4px solid ${(props) => props.theme.colors.branding};
 		background-color: ${(props) => props.theme.colors.backgroundSecondary};
 		position: absolute;
-		top: 30px;
+		top: 35px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
 	}
 
 	.content {
@@ -160,20 +175,22 @@ const GithubStatsCard = styled.div`
 		justify-content: flex-start;
 		flex-direction: column;
 		width: 100%;
-		height: 100%;
-		padding: 20px;
+		padding: 70px 16px 16px 16px;
 
 		h3 {
 			color: ${(props) => props.theme.colors.title};
-			margin-top: 60px;
+			font-size: 15px;
+			font-family: 'JetBrains Mono', monospace;
+			margin-bottom: 2px;
+			text-align: center;
 		}
 
 		a {
-			color: ${(props) => props.theme.colors.body};
-			margin-bottom: 20px;
-			font-size: 14px;
-			margin-top: 5px;
-			font-weight: 300;
+			color: ${(props) => props.theme.colors.branding};
+			margin-bottom: 10px;
+			font-size: 13px;
+			font-family: 'JetBrains Mono', monospace;
+			font-weight: 400;
 			text-decoration: none;
 
 			&:hover {
@@ -184,6 +201,8 @@ const GithubStatsCard = styled.div`
 		p {
 			text-align: center;
 			color: ${(props) => props.theme.colors.body};
+			font-size: 12px;
+			line-height: 1.5;
 		}
 	}
 
@@ -191,13 +210,12 @@ const GithubStatsCard = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
-		width: 90%;
-		height: 60px;
+		width: 100%;
+		height: 56px;
 		background: ${(props) => props.theme.colors.backgroundSecondary};
-		border-radius: 8px;
-		padding: 10px;
-		position: absolute;
-		bottom: 15px;
+		border-top: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundPage};
+		padding: 8px;
+		margin-top: auto;
 
 		.stats {
 			display: flex;
@@ -206,15 +224,18 @@ const GithubStatsCard = styled.div`
 			flex-direction: column;
 
 			p {
-				font-size: 18px;
+				font-size: 16px;
 				font-weight: 900;
 				color: ${(props) => props.theme.colors.title};
-				margin-bottom: 5px;
+				margin-bottom: 2px;
+				font-family: 'JetBrains Mono', monospace;
 			}
 
 			span {
-				font-size: 10px;
-				color: ${(props) => props.theme.colors.body};
+				font-size: 9px;
+				color: ${(props) => props.theme.colors.inactiveTitle};
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
 			}
 		}
 	}
@@ -269,7 +290,7 @@ export default function AProposDeMoi(props) {
 
 	useEffect(() => {
 		async function fetchGithubStats() {
-			const response = await fetch("https://api.github.com/users/bengo237");
+			const response = await fetch(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`);
 			const json = await response.json();
 			setGithubUserData(json);
 		}
@@ -285,15 +306,15 @@ export default function AProposDeMoi(props) {
 							<GithubStatsCard>
 								<div className="background" />
 								<div className="img">
-									<Image src="/img/DYLANE BENGONO.png" alt={language.aboutMePage.alt_dev_img} layout="fill" objectFit="cover" className="image-rounded" />
+									<Image src="/img/DYLANE BENGONO.png" alt={language.aboutMePage.alt_dev_img} width={120} height={120} style={{ objectFit: "cover", borderRadius: "50%", width: "100%", height: "100%" }} />
 								</div>
 								<div className="content">
 									<h3>{githubUserData?.name}</h3>
-									<a href={githubUserData?.html_url} target="_blank">
+									<a href={githubUserData?.html_url} target="_blank" rel="noopener noreferrer">
 										@{githubUserData?.login}
 									</a>
 									{githubUserData?.bio?.split("|").map((line, index) => (
-										<p>{line}</p>
+										<p key={index}>{line}</p>
 									))}
 									<div className="github-stats">
 										<div className="stats">
@@ -321,8 +342,7 @@ export default function AProposDeMoi(props) {
 							<p>{language.aboutMePage.paragraph_three}</p>
 							<div className="tech-and-cv">
 								<SocialNetworkRowStack />
-								<ButtonCV href="https://github.com/bengo237/Myresume/raw/main/Dylane%20Bengono-%20Cybersecurity%20Engineer.pdf
-" target="_blank" data-splitbee-event="Download CV">
+								<ButtonCV href="https://github.com/bengo237/Myresume/raw/main/Dylane%20Bengono-%20Cybersecurity%20Engineer.pdf" target="_blank" rel="noopener noreferrer" data-splitbee-event="Download CV">
 									Download CV
 								</ButtonCV>
 							</div>

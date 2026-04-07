@@ -42,22 +42,21 @@ import { Arduino } from "@styled-icons/simple-icons";
 
 //Custom components
 import Tooltip from "@/components/Tooltip";
-import FetchData from "@/components/RepositoryList";
-import { D } from "styled-icons/crypto";
-
+import staticProjects from "@/config/projects";
 const ContainerGrid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	width: 60%;
-	gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	width: 85%;
+	gap: 16px;
 	transition: all 0.3s ease;
 
-	@media (max-width: 1600px) {
-		width: 85%;
+	@media (max-width: 1200px) {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 600px) {
 		grid-template-columns: repeat(1, 1fr);
+		width: 95%;
 	}
 `;
 
@@ -67,12 +66,13 @@ const WrapperProjectCard = styled.div`
 	align-items: flex-start;
 	justify-content: space-between;
 	flex-direction: column;
-	min-height: 270px;
-	background-color: ${(props) => props.theme.colors.backgroundSecondary};
-	border-radius: 4px;
-	padding: 20px;
+	min-height: 200px;
+	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
+	border-radius: 0;
+	padding: 16px;
 	transition: all 0.3s ease;
-	border: 1px solid ${(props) => props.theme.colors.backgroundPage};
+	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundPage};
+	border-top: 2px solid ${(props) => props.theme.colors.branding}44;
 
 	.created_at {
 		color: ${(props) => props.theme.colors.inactiveTitle};
@@ -233,9 +233,9 @@ function formatDate(dateString) {
 
 
 const Chip = styled.span`
-	color: ${(props) => (props.active == true ? props.theme.colors.backgroundSecondary : props.theme.colors.inactiveTitle)};
-	background-color: ${(props) => (props.active == true ? props.theme.colors.branding : props.theme.colors.backgroundSecondary)};
-	border: 1px solid ${(props) => (props.active == true ? props.theme.colors.branding : props.theme.colors.inactiveTitle)};
+	color: ${(props) => (props.active ? props.theme.colors.backgroundSecondary : props.theme.colors.inactiveTitle)};
+	background-color: ${(props) => (props.active ? props.theme.colors.branding : props.theme.colors.backgroundSecondary)};
+	border: 1px solid ${(props) => (props.active ? props.theme.colors.branding : props.theme.colors.inactiveTitle)};
 	padding: 2px 7px 3px 7px;
 	margin: 3px;
 	border-radius: 4px;
@@ -285,12 +285,9 @@ const SectionPortifolio = styled.section`
 
 export default function Portifolio() {
 	const { language } = useContext(SettingsContext);
-	const [view, setView] = useState("grid");
-	const [stack, setStack] = useState("TODOS");
+	const [stack] = useState("TODOS");
 
-	// Fetch data from my personnal GitHub account to list repositories
-	const [url, setURL] = useState('https://api.github.com/users/Bengo237/repos');
-	const data = FetchData(url);
+	const data = staticProjects;
 
 	const topicsIcons = {
 		"Robot": {
@@ -415,16 +412,6 @@ export default function Portifolio() {
 		}
 	}
 
-	function handleFilter(id) {
-		setStack(id);
-	}
-
-	function handleView(event) {
-		setView(event.target.id);
-	}
-
-	const array_projects = stack == "TODOS";
-
 	return (
 		<SectionPortifolio id="section-portifolio">
 
@@ -468,8 +455,8 @@ export default function Portifolio() {
 			<ContainerTitleSection>
 				<TitleSection>{language.portifolioPage.title}</TitleSection>
 			</ContainerTitleSection>
-			<ContainerGrid view={view}>
-				{data ? (
+			<ContainerGrid>
+				{data.map ? (
 					data.map((project, index) => (
 						<ScrollAnimation animateIn="fadeIn" animateOnce key={index}>
 							<WrapperProjectCard>
@@ -525,9 +512,8 @@ export default function Portifolio() {
 								</span>
 							</WrapperProjectCard>
 						</ScrollAnimation>
-					))) : (
-					<p>Loading...</p>
-				)}
+					))) : null}
+
 			</ContainerGrid>
 		</SectionPortifolio>
 	);

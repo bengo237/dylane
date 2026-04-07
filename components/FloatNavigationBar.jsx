@@ -63,7 +63,7 @@ export default function FloatNavigationBar(props) {
 			<a style={{ textDecoration: "none" }} href="#section-home" onClick={scrollToSection}>
 				<NavOption
 					className="button"
-					isActive={active == "#section-home" ? true : false}
+					isActive={active === "#section-home"}
 					onClick={() => {
 						setActive("#section-home");
 					}}>
@@ -73,7 +73,7 @@ export default function FloatNavigationBar(props) {
 			<a style={{ textDecoration: "none" }} href="#section-services" onClick={scrollToSection}>
 				<NavOption
 					className="button"
-					isActive={active == "#section-services" ? true : false}
+					isActive={active === "#section-services"}
 					onClick={() => {
 						setActive("#section-services");
 					}}>
@@ -83,7 +83,7 @@ export default function FloatNavigationBar(props) {
 			<a style={{ textDecoration: "none" }} href="#section-a-propos" onClick={scrollToSection}>
 				<NavOption
 					className="button"
-					isActive={active == "#section-a-propos" ? true : false}
+					isActive={active === "#section-a-propos"}
 					onClick={() => {
 						setActive("#section-a-propos");
 					}}>
@@ -93,7 +93,7 @@ export default function FloatNavigationBar(props) {
 			<a style={{ textDecoration: "none" }} href="#section-portifolio" onClick={scrollToSection}>
 				<NavOption
 					className="button"
-					isActive={active == "#section-portifolio" ? true : false}
+					isActive={active === "#section-portifolio"}
 					onClick={() => {
 						setActive("#section-portifolio");
 					}}>
@@ -104,7 +104,7 @@ export default function FloatNavigationBar(props) {
 			<a style={{ textDecoration: "none" }} href="#section-experience" onClick={scrollToSection}>
 				<NavOption
 					className="button"
-					isActive={active == "#section-experience" ? true : false}
+					isActive={active === "#section-experience"}
 					onClick={() => {
 						setActive("#section-experience");
 					}}>

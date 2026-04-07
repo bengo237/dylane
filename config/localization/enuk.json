@@ -10,35 +10,39 @@
     "landingPage": {
         "apresentationText": "Hi, There! I'm",
         "typeText": "Dylane Bengono",
-        "resumeText": "Fascinated by computer science and its security issues, I am oriented towards cybersecurity professions. Creative and persevering, I like to take up challenges as a team to meet current security issues.",
+        "resumeText": "Polytechnic Engineer in Cybersecurity & Digital Forensics. CISO (RSSI) at BVMAC. Certified ISO/IEC 27001, CCNP, NSE4, CCT, CPTA v2. Ethical Hacker · CTF Player · OSINT Researcher.",
         "buttonText": "About me"
     },
     "servicesOffer": {
         "title": "My domains",
         "cards": {
             "forensique": {
-                "title": "Forensics",
-                "contentText": "Solid knowledge of the basic principles of computer forensics, including data acquisition methods, data analysis and evidence presentation."
+                "title": "Forensics & OSINT",
+                "contentText": "Data acquisition, memory & disk forensics, evidence analysis and chain of custody. Incident response, malware triage, threat hunting and OSINT investigations using open-source intelligence techniques."
+            },
+            "grc": {
+                "title": "GRC & CISO",
+                "contentText": "Design and deployment of Information System Security Policies (ISSP/PSSI). Risk management with ISO 27001/27002/27005, NIST CSF, EBIOS RM and RGPD. SIEM/SOC implementation (Wazuh, Splunk, QRadar), BCP/DRP and security audits."
             },
             "devsecops": {
                 "title": "DevSecOps",
-                "contentText": "Strong understanding of development, computer security and regulatory compliance. Competent in CI/CD, network security, penetration testing."
+                "contentText": "Shift-left security integrated into CI/CD pipelines (Tekton, ArgoCD). Infrastructure as Code with Terraform and Ansible. Container security with Docker and Kubernetes. Cloud hardening on AWS, GCP and Azure."
             },
             "pentesting": {
                 "title": "Pentesting",
-                "contentText": "Intrusion testing and common vulnerabilities. Reconnaissance, exploitation, post-exploitation and reporting. Identification and correction of vulnerabilities to ensure the security of systems and networks."
+                "contentText": "Black/grey/white box penetration testing. Reconnaissance, exploitation and post-exploitation with detailed reporting. Vulnerability assessment and remediation on systems, networks and web applications."
             },
             "developpement": {
                 "title": "Development",
-                "contentText": "Expertise in Java, Python, C++, JavaScript, Bash, Docker and others. Advanced use of Github for version management and collaboration on personal and professional projects."
+                "contentText": "Security tooling in Python, Bash and Rust. Web development with JavaScript, React and Node.js. Open-source contributions on GitHub — automation scripts, offensive tools and defensive utilities."
             }
         }
     },
     "aboutMePage": {
         "title": "WHOAMI",
-        "paragraph_one": "As a Cybersecurity Professional, I hold a Master of Engineering from the National Advanced School Of Engineering Yaounde and certifications including CSCU,CCT,CEH, NSE, and CKAD. My expertise spans network security, ethical hacking, and vulnerability assessments, ensuring robust defenses against evolving threats",
-        "paragraph_two": "I am passionate about data protection and computer security. With industry experience, I specialize in implementing robust security systems for businesses of all sizes. I am also proficient in penetration testing, regulatory compliance, and security incident management. My goal is to provide advanced security solutions to help protect digital assets.",
-        "paragraph_three": "With a passion for innovation, I actively engage in CTF games and cybersecurity competitions, continually enhancing my skills and driving initiatives for excellence. I am dedicated to leading the charge in cybersecurity, embracing challenges with enthusiasm and a commitment to continuous learning.",
+        "paragraph_one": "Polytechnic Engineer in Cybersecurity and Digital Forensics, Ethical Hacker, certified ISO/IEC 27001 Associate, CCNP, CCT, CSCU, CPTA v2, and NSE4 Fortinet. Currently serving as CISO (RSSI) at BVMAC, with expertise in intrusion testing, incident response, OSINT research, and offensive & defensive security.",
+        "paragraph_two": "Experienced in designing and deploying Information System Security Policies (ISSP), SIEM/SOC solutions (Wazuh, Splunk, IBM QRadar, Snort 3), Business Continuity Plans (BCP/DRP), and security frameworks (ISO 27001/27002/27005, NIST CSF, EBIOS RM, RGPD). Proficient in Terraform, Helm, ArgoCD, Tekton CI/CD, Docker, Kubernetes, and cloud environments (AWS, GCP, Azure).",
+        "paragraph_three": "Laureate of the o'100 OKWELEANS Excellence Program (2023) and Hall of Fame at EC-COUNCIL Cyber Challenge (2022). Passionate CTF player and winner of the 2021 Cybersecurity Experts Olympiad. Committed to continuous learning and advancing cybersecurity.",
         "github_card": {
             "followers": "followers",
             "following": "following",
@@ -61,7 +65,15 @@
             "labelInstitution": "Institution",
             "labelProfessionalCourse": "Professional Courses",
             "labelMasterDegree": "Master's Degree",
-            "labelExtensionCourse": "Extension Courses"
+            "labelExtensionCourse": "Extension Courses",
+            "labelAward": "Award",
+            "labelPresent": "Present",
+            "labelDegreeTitle": "Master of Engineering, Cybersecurity and Digital Investigation – BAC+5",
+            "labelUniversity": "University of Yaoundé I",
+            "sectionWork": "Professional Experience",
+            "sectionEducation": "Academic Education",
+            "sectionCertifications": "Certifications",
+            "sectionAwards": "Awards & Recognition"
         }
     },
     "footer": {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { ThemeProvider } from "styled-components";
 
 //Lista de temas
@@ -8,25 +8,33 @@ import { darkTheme, lightTheme } from "@/styles/Theme";
 import frfrJson from "@/config/localization/frfr.json";
 import enukJson from "@/config/localization/enuk.json";
 
-const goToTop = () => {
-	window.scrollTo({
-		top: 0,
-		behavior: "smooth",
-	});
-};
 export const SettingsContext = createContext({});
 
-const listaTemas = {
-	dark: darkTheme,
-	light: lightTheme,
+const brandingColors = {
+	electricBlue: "#0096c7",
+	green:        "#3fb950",
+	orange:       "#fa8c05",
+	darkYellow:   "#FCD434",
+	purple:       "#8b5cf6",
+	red:          "#f85149",
 };
 
+const baseThemes = { dark: darkTheme, light: lightTheme };
+const DEFAULT_BRANDING = brandingColors.electricBlue;
+
 export default function SettingsProvider({ children }) {
-	const [theme, setTheme] = useState(darkTheme);
+	const [baseThemeName, setBaseThemeName] = useState("dark");
+	const [branding, setBranding] = useState(DEFAULT_BRANDING);
 	const [changeLanguage, setLanguage] = useState(true);
 
-	function changeTheme(newTheme) {
-		setTheme(listaTemas[newTheme]);
+	const theme = { ...baseThemes[baseThemeName], colors: { ...baseThemes[baseThemeName].colors, branding } };
+
+	function changeTheme(id) {
+		if (baseThemes[id]) {
+			setBaseThemeName(id);
+		} else if (brandingColors[id]) {
+			setBranding(brandingColors[id]);
+		}
 	}
 
 	function changeLanguageLocalization() {
