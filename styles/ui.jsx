@@ -61,8 +61,17 @@ export const BodyText = styled.p`
 
 export const TitleSection = styled.h2`
 	font-weight: 700;
-	color: ${(props) => props.theme.colors.branding};
+	color: ${(props) => props.theme.colors.title};
 	font-size: 26px;
+	font-family: 'JetBrains Mono', monospace;
+	letter-spacing: 0.04em;
+
+	&::before {
+		content: "// ";
+		color: ${(props) => props.theme.colors.branding};
+		font-weight: 400;
+	}
+
 	@media (max-width: 900px) {
 		font-size: 18px;
 	}
@@ -74,6 +83,8 @@ export const ContainerTitleSection = styled.div`
 	justify-content: center;
 	margin-bottom: 30px;
 	width: 100%;
+	padding-bottom: 12px;
+	border-bottom: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundSecondary};
 
 	@media (max-width: 900px) {
 		margin-top: 40px;

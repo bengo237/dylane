@@ -81,6 +81,7 @@ const SubTitleLanding = styled.div`
 	margin-top: 10px;
 	margin-bottom: 10px;
 	width: 100%;
+	line-height: 1.6;
 
 	span {
 		font-weight: 800;
@@ -101,6 +102,49 @@ const SubTitleLanding = styled.div`
 
 	@media (max-width: 600px) {
 		text-align: center;
+	}
+`;
+
+const StatusBadge = styled.div`
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
+	font-weight: 500;
+	color: ${(props) => props.theme.colors.statusOnline || "#3fb950"};
+	letter-spacing: 0.06em;
+	margin-bottom: 8px;
+
+	&::before {
+		content: "●";
+		font-size: 10px;
+		animation: pulse 2s infinite;
+	}
+
+	@keyframes pulse {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.4; }
+	}
+`;
+
+const RoleBadge = styled.div`
+	display: inline-flex;
+	align-items: center;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 11px;
+	font-weight: 500;
+	color: ${(props) => props.theme.colors.branding};
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	padding: 4px 10px;
+	border: 1px solid ${(props) => props.theme.colors.branding};
+	border-radius: 3px;
+	margin-bottom: 14px;
+	opacity: 0.85;
+
+	@media (max-width: 600px) {
+		font-size: 10px;
 	}
 `;
 
@@ -179,6 +223,8 @@ export default function HomePage() {
 			<LandingPageContainer>
 
 				<TitleLandingContainer>
+					<StatusBadge>ONLINE · AVAILABLE</StatusBadge>
+					<RoleBadge>[ RSSI · Security Engineer ]</RoleBadge>
 					<SubTitleLanding>{language.landingPage.apresentationText}</SubTitleLanding>
 					<span ref={typedRef} className="type-string" />
 					<SubTitleLanding>{language.landingPage.resumeText}</SubTitleLanding>

@@ -37,11 +37,9 @@ const HeaderContainer = styled.header`
 	position: fixed;
 	top: 0;
 	z-index: 3;
-
-	//Deixar header com efeito de Glassmorphin
-	//background-color: rgba(0, 0, 0, 0.1) !important;
 	backdrop-filter: saturate(180%) blur(30px);
 	-webkit-backdrop-filter: saturate(180%) blur(30px);
+	border-bottom: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundSecondary};
 
 	@media (max-width: 600px) {
 		justify-content: space-between;
@@ -66,10 +64,12 @@ const LogoContainer = styled.div`
 const LogoText = styled.h3`
 	color: ${(props) => props.theme.colors.title};
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 22px;
+	font-family: 'JetBrains Mono', monospace;
+	letter-spacing: 0.02em;
 
 	@media (max-width: 900px) {
-		font-size: ${(props) => props.theme.fontSizes.xl};
+		font-size: ${(props) => props.theme.fontSizes.lg};
 	}
 `;
 
@@ -100,48 +100,48 @@ const SwitchMenuContainer = styled.div`
 `;
 
 const NavbarOption = styled.h4`
-	color: ${(props) => props.theme.colors.title};
-	font-weight: 800;
-	margin-left: 5px;
-	margin-right: 5px;
+	color: ${(props) => props.theme.colors.inactiveTitle};
+	font-weight: 500;
+	font-size: 13px;
+	font-family: 'JetBrains Mono', monospace;
+	letter-spacing: 0.08em;
+	margin-left: 8px;
+	margin-right: 8px;
 	text-decoration: none;
-	border-bottom: 4px solid transparent;
+	text-transform: uppercase;
 	transition: all 0.3s ease;
 	position: relative;
+	padding: 4px 0;
 
-	&::before {
+	&::after {
 		content: "";
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		right: 0;
-		height: 2px;
+		height: 1px;
 		background-color: ${(props) => props.theme.colors.branding};
 		transform-origin: bottom right;
 		transform: scaleX(0);
-		transition: transform 0.5s ease;
+		transition: transform 0.4s ease;
 	}
 
-	&:hover::before {
+	&:hover::after {
 		transform-origin: bottom left;
 		transform: scaleX(1);
 	}
 
 	&:hover {
 		cursor: pointer;
-		color: ${(props) => props.theme.colors.branding};
-	}
-
-	@media (max-width: 1400px) {
-		font-size: ${(props) => props.theme.fontSizes.md};
+		color: ${(props) => props.theme.colors.title};
 	}
 
 	@media (max-width: 1200px) {
-		font-size: ${(props) => props.theme.fontSizes.sm};
+		font-size: 11px;
 	}
 
 	@media (max-width: 900px) {
-		font-size: ${(props) => props.theme.fontSizes.xs};
+		font-size: 10px;
 	}
 `;
 

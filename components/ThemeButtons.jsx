@@ -40,17 +40,17 @@ const ButtonTheme = styled.div`
 `;
 
 const THEMES = [
-	{ id: "orange",    color: "#fa8c05" },
-	{ id: "red",       color: "#B33636" },
-	{ id: "purple",    color: "#72195A" },
-	{ id: "green",     color: "#00ff84" },
-	{ id: "lightBlue", color: "#14e0d3" },
-	{ id: "darkYellow",color: "#FCD434" },
+	{ id: "electricBlue", color: "#0096c7" },
+	{ id: "green",        color: "#3fb950" },
+	{ id: "orange",       color: "#fa8c05" },
+	{ id: "darkYellow",   color: "#FCD434" },
+	{ id: "purple",       color: "#8b5cf6" },
+	{ id: "red",          color: "#f85149" },
 ];
 
 export default function ThemeButtons() {
 	const { changeTheme } = useContext(SettingsContext);
-	const [selectedTheme, setSelectedTheme] = useState("darkYellow");
+	const [selectedTheme, setSelectedTheme] = useState("electricBlue");
 
 	function handleSelectTheme(id) {
 		setSelectedTheme(id);

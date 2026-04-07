@@ -13,58 +13,55 @@ import { SettingsContext } from "@/context/SettingsContext";
 
 const CardService = styled.div`
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-start;
 	flex-direction: column;
 	width: 275px;
-	padding: 20px;
+	padding: 24px 20px;
 	transition: all 0.3s ease;
-	border: 3px solid transparent;
+	background-color: ${(props) => props.theme.colors.panel || props.theme.colors.backgroundSecondary};
+	border: 1px solid ${(props) => props.theme.colors.border || props.theme.colors.backgroundSecondary};
+	border-left: 3px solid ${(props) => props.theme.colors.branding};
+	border-radius: 4px;
 
-	//Espelhar elemento
-	//-webkit-box-reflect: below px linear-gradient(transparent, transparent, #0004);
-
-	/* 
-	transform-origin: center;
-	transform: perspective(800px) rotateY(25deg);
-	transition: 0.5s;
-
-	&:hover img {
-		opacity: 0.3;
-	}
 	&:hover {
-		transform: perspective(800px) rotateY(0deg);
-		opacity: 1;
-	} */
+		transform: translateY(-3px);
+		border-left-width: 4px;
+		box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+	}
 
 	svg {
 		color: ${(props) => props.theme.colors.branding};
-		width: 70px;
-		height: 70px;
-		margin-bottom: 10px;
+		width: 36px;
+		height: 36px;
+		margin-bottom: 14px;
 	}
 
 	h3 {
-		color: ${(props) => props.theme.colors.branding};
-		font-size: 20px;
-		font-weight: 900;
-		margin-top: 5px;
-		margin-bottom: 20px;
+		color: ${(props) => props.theme.colors.title};
+		font-size: 16px;
+		font-weight: 700;
+		font-family: 'JetBrains Mono', monospace;
+		letter-spacing: 0.04em;
+		margin-top: 0;
+		margin-bottom: 12px;
+		text-transform: uppercase;
 
 		@media (max-width: 900px) {
-			font-size: 18px;
+			font-size: 14px;
 		}
 	}
 
 	p {
-		font-size: 16px;
+		font-size: 14px;
 		color: ${(props) => props.theme.colors.body};
 		font-weight: 400;
-		text-align: center;
+		text-align: left;
 		word-wrap: break-word;
+		line-height: 1.6;
 
 		@media (max-width: 900px) {
-			font-size: 14px;
+			font-size: 13px;
 		}
 	}
 
