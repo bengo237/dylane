@@ -7,6 +7,7 @@ import { MagnifyingGlass } from "@styled-icons/entypo/MagnifyingGlass";
 import { ShieldKeyhole } from "@styled-icons/fluentui-system-filled/ShieldKeyhole";
 import { Password } from "@styled-icons/fluentui-system-filled/Password";
 import { CodeBlock } from "@styled-icons/boxicons-regular/CodeBlock";
+import { ClipboardData } from "@styled-icons/bootstrap/ClipboardData";
 
 //Contexto
 import { SettingsContext } from "@/context/SettingsContext";
@@ -122,17 +123,21 @@ const TerminalOutputLine = styled.div`
 
 const ContainerGrid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	transition: all 0.3s ease;
-	gap: 20px;
-	justify-items: center;
+	gap: 16px;
+	width: 90%;
 
-	@media (max-width: 1200px) {
-		grid-template-columns: repeat(2, 1fr);
-		width: 85%;
+	@media (max-width: 1400px) {
+		grid-template-columns: repeat(3, 1fr);
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 900px) {
+		grid-template-columns: repeat(2, 1fr);
+		width: 95%;
+	}
+
+	@media (max-width: 500px) {
 		grid-template-columns: repeat(1, 1fr);
 		width: 100%;
 	}
@@ -155,25 +160,31 @@ export default function ServicesOffer() {
 			icon: <MagnifyingGlass />,
 			key: "forensique",
 			label: "FORENSICS",
-			command: "cat domains.txt",
+			command: "tail -f incident.log",
+		},
+		{
+			icon: <ClipboardData />,
+			key: "grc",
+			label: "GRC / RSSI",
+			command: "sudo cat policy.conf",
 		},
 		{
 			icon: <ShieldKeyhole />,
 			key: "devsecops",
 			label: "DEVSECOPS",
-			command: "cat domains.txt",
+			command: "kubectl get pods --all",
 		},
 		{
 			icon: <Password />,
 			key: "pentesting",
 			label: "PENTEST",
-			command: "cat domains.txt",
+			command: "nmap -sV --script vuln",
 		},
 		{
 			icon: <CodeBlock />,
 			key: "developpement",
 			label: "DEV",
-			command: "cat domains.txt",
+			command: "git log --oneline -5",
 		},
 	];
 

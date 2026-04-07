@@ -17,20 +17,24 @@
         "title": "My domains",
         "cards": {
             "forensique": {
-                "title": "Forensics",
-                "contentText": "Solid knowledge of digital forensics principles: data acquisition, analysis and evidence presentation. Experience in incident response, OSINT research and security investigation."
+                "title": "Forensics & OSINT",
+                "contentText": "Data acquisition, memory & disk forensics, evidence analysis and chain of custody. Incident response, malware triage, threat hunting and OSINT investigations using open-source intelligence techniques."
+            },
+            "grc": {
+                "title": "GRC & CISO",
+                "contentText": "Design and deployment of Information System Security Policies (ISSP/PSSI). Risk management with ISO 27001/27002/27005, NIST CSF, EBIOS RM and RGPD. SIEM/SOC implementation (Wazuh, Splunk, QRadar), BCP/DRP and security audits."
             },
             "devsecops": {
                 "title": "DevSecOps",
-                "contentText": "Design and deployment of ISSP, SIEM/SOC solutions, BCP/DRP, and security frameworks (ISO 27001/27002/27005, NIST CSF, EBIOS RM). Proficient in Terraform, Helm, ArgoCD, Tekton CI/CD, Docker and Kubernetes."
+                "contentText": "Shift-left security integrated into CI/CD pipelines (Tekton, ArgoCD). Infrastructure as Code with Terraform and Ansible. Container security with Docker and Kubernetes. Cloud hardening on AWS, GCP and Azure."
             },
             "pentesting": {
                 "title": "Pentesting",
-                "contentText": "Intrusion testing and vulnerability assessment. Reconnaissance, exploitation, post-exploitation and reporting. Identification and remediation of vulnerabilities to ensure the security of systems and networks."
+                "contentText": "Black/grey/white box penetration testing. Reconnaissance, exploitation and post-exploitation with detailed reporting. Vulnerability assessment and remediation on systems, networks and web applications."
             },
             "developpement": {
                 "title": "Development",
-                "contentText": "Expertise in Python, Java, JavaScript, C, Bash, Rust and others. Experience in web development, automation, security tool development and open-source contributions on GitHub."
+                "contentText": "Security tooling in Python, Bash and Rust. Web development with JavaScript, React and Node.js. Open-source contributions on GitHub — automation scripts, offensive tools and defensive utilities."
             }
         }
     },

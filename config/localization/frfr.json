@@ -17,20 +17,24 @@
 		"title": "Mes domaines",
 		"cards": {
 			"forensique": {
-				"title": "Forensique",
-				"contentText": "Solide connaissance des principes de la forensique numérique : acquisition de données, analyse et présentation des preuves. Expérience en réponse aux incidents, recherche OSINT et investigation de sécurité."
+				"title": "Forensique & OSINT",
+				"contentText": "Acquisition de données, forensique mémoire et disque, analyse de preuves et chaîne de custody. Réponse aux incidents, triage de malwares, threat hunting et investigations OSINT via techniques de renseignement open-source."
+			},
+			"grc": {
+				"title": "GRC & RSSI",
+				"contentText": "Conception et déploiement de PSSI. Gestion des risques avec ISO 27001/27002/27005, NIST CSF, EBIOS RM et RGPD. Mise en place de SIEM/SOC (Wazuh, Splunk, QRadar), PCA/PRA et audits de sécurité."
 			},
 			"devsecops": {
 				"title": "DevSecOps",
-				"contentText": "Conception et déploiement de PSSI, solutions SIEM/SOC, PCA/PRA, et référentiels de sécurité (ISO 27001/27002/27005, NIST CSF, EBIOS RM). Maîtrise de Terraform, Helm, ArgoCD, Tekton CI/CD, Docker et Kubernetes."
+				"contentText": "Sécurité intégrée dans les pipelines CI/CD (Tekton, ArgoCD). Infrastructure as Code avec Terraform et Ansible. Sécurité des conteneurs Docker et Kubernetes. Durcissement cloud sur AWS, GCP et Azure."
 			},
 			"pentesting": {
 				"title": "Pentesting",
-				"contentText": "Tests d'intrusion et évaluation des vulnérabilités. Reconnaissance, exploitation, post-exploitation et reporting. Identification et correction des vulnérabilités pour assurer la sécurité des systèmes et des réseaux."
+				"contentText": "Tests d'intrusion boîte noire, grise et blanche. Reconnaissance, exploitation, post-exploitation avec rapport détaillé. Évaluation et correction des vulnérabilités sur systèmes, réseaux et applications web."
 			},
 			"developpement": {
 				"title": "Développement",
-				"contentText": "Expertise en Python, Java, JavaScript, C, Bash, Rust et autres. Expérience en développement web, automatisation, développement d'outils de sécurité et contributions open-source sur GitHub."
+				"contentText": "Outils de sécurité en Python, Bash et Rust. Développement web avec JavaScript, React et Node.js. Contributions open-source sur GitHub — scripts d'automatisation, outils offensifs et utilitaires défensifs."
 			}
 		}
 	},
