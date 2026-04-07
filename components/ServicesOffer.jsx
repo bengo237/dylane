@@ -146,7 +146,7 @@ const ContainerGrid = styled.div`
 const SectionServices = styled.section`
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	flex-direction: column;
 	width: 100%;
 	padding-top: 60px;

@@ -402,7 +402,7 @@ export default function HomePage() {
 						<TerminalPrompt>whoami</TerminalPrompt>
 						<TerminalOutput>Dylane Bengono</TerminalOutput>
 						<TerminalPrompt>cat role.txt</TerminalPrompt>
-						<TerminalOutput>Information Security Lead | Governance, Risk & Compliance (GRC</TerminalOutput>
+						<TerminalOutput>Information Security Lead | Governance, Risk & Compliance (GRC) </TerminalOutput>
 						<TerminalPrompt>status --check</TerminalPrompt>
 						<TerminalOnline>● ONLINE · AVAILABLE</TerminalOnline>
 					</TerminalBlock>

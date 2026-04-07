@@ -69,7 +69,11 @@
 			"labelAward": "Récompense",
 			"labelPresent": "Présent",
 			"labelDegreeTitle": "Master of Engineering, Cybersécurité et Investigation Numérique – BAC+5",
-			"labelUniversity": "Université de Yaoundé I"
+			"labelUniversity": "Université de Yaoundé I",
+			"sectionWork": "Expérience Professionnelle",
+			"sectionEducation": "Formation Académique",
+			"sectionCertifications": "Certifications",
+			"sectionAwards": "Récompenses & Distinctions"
 		}
 	},
 	"footer": {

@@ -10,7 +10,7 @@
     "landingPage": {
         "apresentationText": "Hi, There! I'm",
         "typeText": "Dylane Bengono",
-        "resumeText": "Polytechnic Engineer in Cybersecurity & Digital Forensics. CISO (RSSI) at BVMAC · Security Engineer at adorsys. Certified ISO/IEC 27001, CCNP, NSE4, CCT, CPTA v2. Ethical Hacker · CTF Player · OSINT Researcher.",
+        "resumeText": "Polytechnic Engineer in Cybersecurity & Digital Forensics. CISO (RSSI) at BVMAC. Certified ISO/IEC 27001, CCNP, NSE4, CCT, CPTA v2. Ethical Hacker · CTF Player · OSINT Researcher.",
         "buttonText": "About me"
     },
     "servicesOffer": {
@@ -69,7 +69,11 @@
             "labelAward": "Award",
             "labelPresent": "Present",
             "labelDegreeTitle": "Master of Engineering, Cybersecurity and Digital Investigation – BAC+5",
-            "labelUniversity": "University of Yaoundé I"
+            "labelUniversity": "University of Yaoundé I",
+            "sectionWork": "Professional Experience",
+            "sectionEducation": "Academic Education",
+            "sectionCertifications": "Certifications",
+            "sectionAwards": "Awards & Recognition"
         }
     },
     "footer": {
