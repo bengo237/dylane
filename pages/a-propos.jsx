@@ -315,8 +315,8 @@ export default function AProposDeMoi(props) {
 						<ScrollAnimation animateIn="fadeIn" animateOnce delay={200}>
 							<GithubStatsCard>
 								<div className="background" />
-								<div className="img" style={{ position: "relative" }}>
-									<Image src="/img/DYLANE BENGONO.png" alt={language.aboutMePage.alt_dev_img} fill style={{ objectFit: "cover" }} className="image-rounded" />
+								<div className="img">
+									<Image src="/img/DYLANE BENGONO.png" alt={language.aboutMePage.alt_dev_img} width={120} height={120} style={{ objectFit: "cover", borderRadius: "50%", width: "100%", height: "100%" }} />
 								</div>
 								<div className="content">
 									<h3>{githubUserData?.name}</h3>

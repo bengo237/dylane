@@ -42,7 +42,7 @@ import { Arduino } from "@styled-icons/simple-icons";
 
 //Custom components
 import Tooltip from "@/components/Tooltip";
-import FetchData from "@/components/RepositoryList";
+import staticProjects from "@/config/projects";
 const ContainerGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -287,9 +287,7 @@ export default function Portifolio() {
 	const { language } = useContext(SettingsContext);
 	const [stack] = useState("TODOS");
 
-	// Fetch data from my personnal GitHub account to list repositories
-	const [url, setURL] = useState(`https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=30&sort=updated`);
-	const data = FetchData(url);
+	const data = staticProjects;
 
 	const topicsIcons = {
 		"Robot": {
@@ -458,7 +456,7 @@ export default function Portifolio() {
 				<TitleSection>{language.portifolioPage.title}</TitleSection>
 			</ContainerTitleSection>
 			<ContainerGrid>
-				{Array.isArray(data) && data.length > 0 ? (
+				{data.map ? (
 					data.map((project, index) => (
 						<ScrollAnimation animateIn="fadeIn" animateOnce key={index}>
 							<WrapperProjectCard>
@@ -514,11 +512,8 @@ export default function Portifolio() {
 								</span>
 							</WrapperProjectCard>
 						</ScrollAnimation>
-					))) : (
-					<p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "13px", opacity: 0.5, gridColumn: "1/-1", textAlign: "center", padding: "40px 0" }}>
-						{data === null ? "$ error: GitHub API rate limit exceeded — try again later" : "$ loading repositories..."}
-					</p>
-				)}
+					))) : null}
+
 			</ContainerGrid>
 		</SectionPortifolio>
 	);
