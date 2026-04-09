@@ -2,14 +2,28 @@
 # Change WARN to IGNORE to ignore rule or FAIL to fail if rule matches
 # Only the rule identifiers are used - the names are just for info
 # You can add your own messages to each rule by appending them after a tab on each line.
+#
+# FAIL  = bloque le build (contrôles critiques CASA / OWASP)
+# WARN  = avertissement visible dans le rapport
+# IGNORE = désactivé
+
+# --- CRITICAL (FAIL) ---
+10055	FAIL	(CSP - Content Security Policy manquante ou trop permissive)
+10020	FAIL	(X-Frame-Options manquant - risque de Clickjacking)
+10021	FAIL	(X-Content-Type-Options manquant - risque de MIME sniffing)
+10011	FAIL	(Cookie Without Secure Flag)
+10010	FAIL	(Cookie No HttpOnly Flag)
+10054	FAIL	(Cookie without SameSite Attribute)
+10098	FAIL	(Cross-Domain Misconfiguration - CORS trop permissif)
+10105	FAIL	(Weak Authentication Method)
+3	FAIL	(Session ID in URL Rewrite)
+2	FAIL	(Private IP Disclosure)
+
+# --- WARNING ---
 10003	WARN	(Vulnerable JS Library)
-10010	WARN	(Cookie No HttpOnly Flag)
-10011	WARN	(Cookie Without Secure Flag)
 10015	WARN	(Incomplete or No Cache-control Header Set)
 10017	WARN	(Cross-Domain JavaScript Source File Inclusion)
 10019	WARN	(Content-Type Header Missing)
-10020	WARN	(X-Frame-Options Header)
-10021	WARN	(X-Content-Type-Options Header Missing)
 10023	WARN	(Information Disclosure - Debug Error Messages)
 10024	WARN	(Information Disclosure - Sensitive Information in URL)
 10025	WARN	(Information Disclosure - Sensitive Information in HTTP Referrer Header)
@@ -17,17 +31,11 @@
 10032	WARN	(Viewstate)
 10037	WARN	(Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s))
 10040	WARN	(Secure Pages Include Mixed Content)
-10054	WARN	(Cookie without SameSite Attribute)
-10055	WARN	(CSP)
 10056	WARN	(X-Debug-Token Information Leak)
 10057	WARN	(Username Hash Found)
 10061	WARN	(X-AspNet-Version Response Header)
 10096	WARN	(Timestamp Disclosure)
-10098	WARN	(Cross-Domain Misconfiguration)
-10105	WARN	(Weak Authentication Method)
 10202	WARN	(Absence of Anti-CSRF Tokens)
-2	WARN	(Private IP Disclosure)
-3	WARN	(Session ID in URL Rewrite)
 50001	WARN	(Script Passive Scan Rules)
 90001	WARN	(Insecure JSF ViewState)
 90011	WARN	(Charset Mismatch)
