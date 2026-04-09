@@ -184,7 +184,7 @@ export function CertificationsTimeline() {
 	const L = language.experiencePage.timeline;
 
 	const certs = [
-		{ year: "2026", title: "CASA: Cloud Application Security Assessment", institution: "APIsec University" },
+		{ year: "2026", title: "CASA: Certified API Security Analyst", institution: "APIsec University" },
 		{ year: "2024", title: "ISO/IEC 27001 Associate", institution: null },
 		{ year: "2024", title: "CCNP – Cisco Certified Network Professional", institution: "Cisco" },
 		{ year: "2024", title: "CCT: Certified Cybersecurity Technician", institution: "EC-COUNCIL" },
