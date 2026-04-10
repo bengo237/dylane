@@ -342,7 +342,7 @@ export default function AProposDeMoi(props) {
 							<p>{language.aboutMePage.paragraph_three}</p>
 							<div className="tech-and-cv">
 								<SocialNetworkRowStack />
-								<ButtonCV href="https://github.com/bengo237/Myresume/raw/main/Dylane%20Bengono-%20Cybersecurity%20Engineer.pdf" target="_blank" rel="noopener noreferrer" data-splitbee-event="Download CV">
+								<ButtonCV href="https://github.com/bengo237/cv/releases/download/cv-2026-04-10-d3617f0/CV_Dylane_Bengono_RSSI.pdf" target="_blank" rel="noopener noreferrer" data-splitbee-event="Download CV">
 									Download CV
 								</ButtonCV>
 							</div>
