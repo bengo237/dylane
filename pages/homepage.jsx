@@ -389,8 +389,8 @@ export default function HomePage() {
 			<ProgressBar color={theme.colors.branding} height={5} />
 			<Head
 				title="bengo237.sh — Security Portfolio"
-				metaDescription="Ingénieur en Cybersécurité & Investigation Numérique. RSSI · Pentester · CTF Player. Je protège les systèmes le jour, je les teste la nuit."
-				keywords="Dylane Bengono, Cybersécurité, Pentesting, RSSI, CTF, OSINT, Forensique, DevSecOps, SOC, Wazuh, ISO 27001"
+				metaDescription="Cybersecurity Engineer & Digital Forensics Investigator. CISO · Pentester · CTF Player. I protect systems by day, I break them by night."
+				keywords="Dylane Bengono, Cybersecurity, Pentesting, CISO, CTF, OSINT, Forensics, DevSecOps, SOC, Wazuh, ISO 27001"
 			/>
 			<LandingPageContainer>
 
