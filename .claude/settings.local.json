@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(where inkscape *)",
+      "Bash(where magick *)",
+      "Bash(where convert *)",
+      "PowerShell(python --version 2>&1)",
+      "PowerShell(python3 --version 2>&1)",
+      "PowerShell(python -c \"from PIL import Image; print\\('Pillow OK'\\)\" 2>&1)"
+    ]
+  }
+}
